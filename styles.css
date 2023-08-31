@@ -92,8 +92,8 @@ h2 > span {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-left: 208px;
-    padding-right: 208px;
+    padding-left: 12%;
+    padding-right: 12%;
 
 }
 
@@ -120,7 +120,7 @@ h2 > span {
 
 .nav:link {
     font-family: sans-serif;
-    font-size: 14px;
+    font-size: 0.8rem;
     margin-left: -4px;
     padding: 0 10px;
     padding-bottom: 28px;
@@ -142,12 +142,17 @@ button:hover {
 .main {
     height: 100%;
     width: 100%;
-    padding: 2rem 12rem;
+    max-width: 1000px;
+    /* padding: 2rem 12rem; */
+    padding: 2%;
     background-color: rgb(244, 244, 244);
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(20, auto);
-    gap: 35px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    /* grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(20, auto); */
     margin-bottom: 1rem;
 }
 
@@ -160,8 +165,11 @@ button:hover {
 }
 
 #cbox1 {
-    grid-column: span 7;
-    grid-row: span 1;
+    /* grid-column: span 7;
+    grid-row: span 1; */
+    min-width: 300px;
+     max-width: 100vw;
+   
 }
 .dropdown {
     background-color: rgba(224, 224, 224, 0.395);
@@ -189,8 +197,10 @@ button:hover {
 }
 
 #cbox2 {
-    grid-column: span 5;
-    grid-row: span 1;
+    /* grid-column: span 5;
+    grid-row: span 1; */
+    min-width: 200px;
+    max-width: 70%;
     color: #fff ;
     background-image: linear-gradient(to right , rgb(108, 15, 108) , rgb(208, 25, 132));
 }
@@ -206,8 +216,8 @@ font-size: medium;
 }
 
 #cbox3 {
-    grid-column: span 12;
-    grid-row: span 18;
+    /* grid-column: span 12;
+    grid-row: span 18; */
     position: relative; 
     display: flex;
     justify-content: center;
@@ -299,6 +309,7 @@ font-size: medium;
     position: absolute;
     top: 79%;
     right: -14%;
+    /* clip-path: polygon(0% 0% , 100% 0% , 50% 0% , 100% 50%); */
 }
 
 .status {
@@ -325,8 +336,8 @@ font-size: medium;
 }
 
 #cbox4 {
-    grid-column: span 5;
-    grid-row: span 10;
+    /* grid-column: span 5;
+    grid-row: span 10; */
 }
 
 #cbox4 > h3 {
@@ -336,8 +347,8 @@ font-size: medium;
 }
 
 #cbox4 > p {
-    margin: 15%;
-    margin-top: 85px;
+    margin: 10%;
+    margin-left: 33%;
 }
 
 #cbox4 > button {
@@ -347,12 +358,11 @@ font-size: medium;
     border: 0;
     padding: 7px 30px;
     font-size: medium;
-    margin-left: 212px;
-    margin-top: 22px;
+    margin-left: 74%;
 }
 #cbox5 {
-    grid-column: span 7;
-    grid-row: span 10;
+    /* grid-column: span 7;
+    grid-row: span 10; */
     padding: 0;
     padding-right: 50px;
 }
@@ -471,7 +481,7 @@ font-size: medium;
     position: absolute;
     bottom: 5px;
     width: 47%;
-    padding-right: 50px;
+    padding-right: ;
 }
 
 .subcont button {
@@ -515,17 +525,19 @@ footer {
 #foot_cont1 {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: 140%;
     padding: 0.6rem;
-    font-size: 14px;
+    font-size: 0.8rem;
+    text-align: center;
 }
 
 #foot_cont2 {
     display: flex;
     justify-content: space-between;
     width: 70%;
-    padding: 0.6rem;
+    padding: 0.6rem 5rem 0.6rem 0rem;
     font-size: 14px;
+    margin-right: 7rem;
 }
 
 #foot_cont3 {
@@ -538,12 +550,68 @@ footer {
     margin-bottom: 9px;
 }
 #app_store {
-   width: 120px;
+   width: 8rem;
    height: 100%;
 }
 
 
 #play_store {
-    width: 120px;
+    width: 8rem;
     height: 100%;
 }
+
+@media (max-width:920px) {
+    .bar1 {
+        display: none;
+        padding: 0;
+    }
+    main {
+        grid-template-columns: 1;
+    }
+    .nav {
+        display: none;
+    }
+    .bar2_1 {
+        margin: 45%;
+        padding: 0;
+    }
+    #cbox1 {
+        min-width: 300px;
+        width: 100vw;
+    }
+    #cbox2 {
+        width: 100%;
+        max-width: 100vw;
+        margin: 0
+        ;
+    }
+    #cbox3 {
+        width: 100%;
+        height: 28rem;
+        padding-bottom: 20%;
+    }
+
+    .int-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+    }
+    .int-big {
+        position: relative;
+        top: -1rem;
+        left: -6rem;
+    }
+
+    .int-white {
+        clip-path: ellipse(105px 105px at 50% 2%);
+    }
+    #cbox4 {
+        width: 100%;
+    }
+    #cbox5 {
+        height: 19.5rem;
+    }
+    footer {
+        height: 14.5rem;
+    }
+}   
