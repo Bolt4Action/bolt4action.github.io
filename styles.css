@@ -321,7 +321,7 @@ main
 #projects-section
 {
     padding: 3rem;
-    padding-bottom: 1remx;
+    padding-bottom: 1rem;
     padding-top: 6rem;
 }
 
@@ -361,7 +361,7 @@ main
 
 /* Media Queries */
 
-@media screen and (max-width: 520px){
+/* @media screen and (max-width: 520px){
 
     #hero-img
     {
@@ -370,7 +370,6 @@ main
     .content-section
     {
         flex-direction: column;
-        /* padding: 1rem; */
         padding-top: 8vh;
     }
         .two-column
@@ -399,18 +398,32 @@ main
         width: 100%;
         height: 20%;
     }
-}
+} */
 
-@media screen and (max-width: 1240px) and (min-width: 520px) {
+@media screen and (max-width: 986px) {
     .post-area
     {
-        flex-wrap:wrap;
-        justify-content: center;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    .two-column
+    {
+        width: 100%;
     }
 
     .post-container
     {
-        width: 80%;
+        width: 100%;
+        max-width: 35rem;
+    }
+
+    .content-section
+    {
+        flex-direction: column;
+        padding: 10vw;
     }
 
 
