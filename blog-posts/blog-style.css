@@ -32,15 +32,16 @@ body
     overflow-x: hidden;
 }
 
+/* Navigation & Blog Logo */
 nav
 {
     position: fixed;
     top: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     height: 4.2rem;
-    width: 100vw;
-    background-color: var(--color5);
+    width: 100%;
+    justify-content: center;
     z-index: 10;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.403);
 }
@@ -49,12 +50,14 @@ nav
 {
     min-width: 20%;
     display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
+
 #blog-logo-container
 {
-    /* position: absolute; */
+    position: sticky;
     top: 0px;
     display: flex;
     align-items: center;
@@ -69,41 +72,77 @@ nav
 
 #blog-logo-container h1
 {
-    color: white;
     font-family: "Oswald";
     font-size: 3rem;
     margin-top: -0.4rem;
     text-wrap: nowrap;
 }
 
+.white-nav
+{
+    background-color: rgb(238, 235, 241);
+    transition: 0.1s;
+}
+
+h1.white-nav
+{
+    color: transparent;
+    background-image: linear-gradient(var(--color5), var(--color6));
+    background-clip: text;
+    transition: 0.1s;
+}
+
+.purple-nav
+{
+    background-color: #6A3ED9;
+    transition: 0.1s;
+}
+
+h1.purple-nav
+{
+    color: white;
+    transition: 0.1s;
+}   
+
+/* Main Page */
 main
 {
     display: flex;
+    justify-content: center;
     width: 100vw;
     height: 100vh;
-    padding-top: 10rem;
+    padding-top: 7rem;
 }
 
-.side-section
+/* .side-section
 {
     height: 100vh;
     width: 105rem;
-}
+} */
 
 article
 {
-    min-width: 40rem;
+    min-width: 20rem;
+    max-width: 50rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     /* align-items: center; */
-    gap: 1rem;
+    /* gap: 1rem; */
 }
 
-h1
+article h1
 {
     font-family: "Oswald", sans-serif;
     font-size: 3rem;
     color: var(--color5);
+    margin-bottom: 0.5rem;
+}
+
+h2
+{
+    color: var(--color6);
+    margin-bottom: 4rem;
 }
 
 p

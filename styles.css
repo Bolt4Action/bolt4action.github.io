@@ -13,13 +13,13 @@
     --accent3: #37bfe8;
 }
 
+/*General Selectors*/
 *
 {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
 
 a
 {
@@ -74,6 +74,8 @@ button:active
     scale: 0.95;
 }
 
+
+/*Navigation & Blog Logo*/
 nav
 {
     position: fixed;
@@ -145,18 +147,8 @@ h1.purple-nav
     transition: 0.1s;
 }
 
-/* nav:hover
-{
-    background-color: #6A3ED9;
-    transition: 0.1s;
-}
 
-nav:hover #blog-logo-container h1
-{
-    color: white;
-    transition: 0.1s;
-} */
-
+/*Main Page*/
 main
 {
     max-width: 100vw;
@@ -188,39 +180,6 @@ main
     justify-content: center;
     align-items: center;
     gap: 1rem;
-}
-
-#hero-section
-{
-    background-color: var(--color5);
-    color: white;
-    background-image: none;
-    padding-top: 10vh;
-}
-
-#hero-img
-{
-    width: 100%;
-    border-radius: 20px;
-    box-shadow: 1px 1px 5px 0.5px rgba(0, 0, 0, 0.500);
-}
-
-#blog-section
-{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 2.5rem;
-    padding-top: 8rem;
-    padding-bottom: 4rem;
-}
-
-#blog-header
-{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
 }
 
 .post-area
@@ -305,6 +264,41 @@ main
     font-size: 1.5rem;
 }
 
+/* Hero Section */
+
+#hero-section
+{
+    background-color: var(--color5);
+    color: white;
+    background-image: none;
+    padding-top: 10vh;
+}
+
+#hero-img
+{
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px 0.5px rgba(0, 0, 0, 0.500);
+}
+
+/* Blog Section */
+#blog-section
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 2.5rem;
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+}
+
+#blog-header
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
 
 
 /* Projects */
@@ -361,45 +355,6 @@ main
 
 
 /* Media Queries */
-
-/* @media screen and (max-width: 520px){
-
-    #hero-img
-    {
-        width: 80%;
-    }
-    .content-section
-    {
-        flex-direction: column;
-        padding-top: 8vh;
-    }
-        .two-column
-    {
-        width: 100%;
-    }
-
-    .post-area
-    {
-        flex-direction: column;
-    }
-
-    .post-container
-    {
-        width: 100%;
-    }
-    
-    #blog-header p,
-    #blog-header h2
-    {
-        padding: 0.5rem 1rem;
-    }
-
-    .projects-post-container
-    {
-        width: 100%;
-        height: 20%;
-    }
-} */
 
 @media screen and (max-width: 986px) {
     .post-area
