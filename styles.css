@@ -343,9 +343,10 @@ main
     object-fit: contain;
 }
 
-#blog-project-img
+.projects-post-container:hover #blog-project-img
 {
-    background-color: #20123F;
+    content: url("blog-logo-white-text.svg");
+    transition: 0.1s;
 }
 
 .projects-post-container h3
