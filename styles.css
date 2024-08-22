@@ -189,6 +189,33 @@ h1.purple-nav
     transition: 0.1s;
 }
 
+/* Optional Hover Effects */
+/* .white-nav:hover
+{
+    background-color: #6A3ED9;
+    transition: 0.1s;
+}
+
+.white-nav:hover #blog-logo-container h1
+{
+    color: white;
+    transition: 0.1s;
+}
+
+.purple-nav:hover
+{
+    background-color: rgb(238, 235, 241);
+    transition: 0.1s;
+}
+
+.purple-nav:hover #blog-logo-container h1
+{
+    color: transparent;
+    background-image: linear-gradient(var(--color5), var(--color6));
+    background-clip: text;
+    transition: 0.1s;
+} */
+
 
 /*Main Page*/
 main
