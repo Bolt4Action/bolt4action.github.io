@@ -104,6 +104,16 @@ h1.purple-nav
     transition: 0.1s;
 }   
 
+.back-button
+{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 5rem;
+    border-radius: 50px;
+    background-color: var(--color5);
+
+}
 /* Main Page */
 main
 {

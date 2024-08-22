@@ -20,3 +20,20 @@ function switchNavColor() {
 
 
 nav.addEventListener("click",switchNavColor);
+
+
+let viewMoreBtn = document.getElementsByClassName("view-more-btn");
+
+function buttonRemove() {
+    this.classList.remove("view-more-btn");
+    this.classList.add("view-more-btn-clicked");
+    this.innerText = "Working on more, Stay Tuned !";
+}
+
+for (let i = 0; i < viewMoreBtn.length; i++) {
+    viewMoreBtn[i].addEventListener("mouseup", buttonRemove);
+}
+
+
+
+
