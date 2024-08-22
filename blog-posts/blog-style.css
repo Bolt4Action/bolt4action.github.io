@@ -1,0 +1,114 @@
+:root
+{
+    --color1: #20123F;
+    --color2: #e5ddee;
+    --color3: #685790;
+    --color4: #806BB0;
+    --color5: #6A3ED9;
+    --color6: #382173;
+    --color7: #E0DDEE;
+    --color8: #C3B2ED;
+    --accent1: #c9d60ea5;
+    --accent2: rgb(255, 233, 111);
+    --accent3: #37bfe8;
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html
+{
+    background-color: var(--color7);
+    height: 100vh;
+    width: 100vw;
+}
+
+body
+{
+    overflow-x: hidden;
+}
+
+nav
+{
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    height: 4.2rem;
+    width: 100vw;
+    background-color: var(--color5);
+    z-index: 10;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.403);
+}
+
+.nav-container
+{
+    min-width: 20%;
+    display: flex;
+    align-items: center;
+}
+
+#blog-logo-container
+{
+    /* position: absolute; */
+    top: 0px;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+}
+#blog-logo
+{
+    margin-right: 0.5rem;
+    width: 3rem;
+    z-index: 10;
+}
+
+#blog-logo-container h1
+{
+    color: white;
+    font-family: "Oswald";
+    font-size: 3rem;
+    margin-top: -0.4rem;
+    text-wrap: nowrap;
+}
+
+main
+{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    padding-top: 10rem;
+}
+
+.side-section
+{
+    height: 100vh;
+    width: 105rem;
+}
+
+article
+{
+    min-width: 40rem;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    gap: 1rem;
+}
+
+h1
+{
+    font-family: "Oswald", sans-serif;
+    font-size: 3rem;
+    color: var(--color5);
+}
+
+p
+{
+    font-size: 1.2rem;
+    font-family: "Roboto", sans-serif;
+    /* padding: 3rem 15rem; */
+}
