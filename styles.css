@@ -265,7 +265,7 @@ main
     transform:scale(1.01);
     transition: 0.4s;
     /* text-shadow: 0 0 1px black; */
-    background-color: #6a3ed9b0;
+    background-color: #6a3ed984;
     box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.500) ;
 }
 
