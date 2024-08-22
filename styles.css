@@ -405,11 +405,12 @@ main
     .post-area
     {
         flex-wrap:wrap;
+        justify-content: center;
     }
 
     .post-container
     {
-        width: 100%;
+        width: 80%;
     }
 
 
