@@ -67,6 +67,12 @@ html, body{
     transition: 0.1s;
 }
 
+.purple-btn:active
+{
+    background-color: rgb(210, 210, 210);
+    scale: 0.95;
+}
+
 
 .view-more-btn
 {
