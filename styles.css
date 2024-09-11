@@ -199,7 +199,7 @@ nav {
     left: 16rem;
     font-family: system-ui, -apple-system, BlinkMacSystemFont;
     font-weight: bold;
-    transform: rotate(20deg);
+    transform: rotate(40deg);
     /* width: 200px; */
 }
 
@@ -359,14 +359,45 @@ main {
 
 /* Hero Section */
 
+#hero-section a {
+    background-color: white;
+    padding: 0rem 0.5rem;
+}
+#hero-section a::after {
+    content: "Web Developer";
+    color: transparent;
+    background-clip: text;
+    background-image: linear-gradient(45deg, #ed21cf, #7462ff, #4714f0);
+    animation: slow-purple-animation 60s ease-in-out infinite;
+    }
+    
+#hero-section a:hover {
+    color: cyan;
+    transition: 0.1s;
+}
+
 #hero-section {
-    background-color: var(--color5);
+    /* background-color: var(--color5); */
+    background-image: linear-gradient(45deg, #7c01ff, #8f67f6, #aa14f0);
     color: white;
-    background-image: none;
+    background-size: 900%;
     padding-top: 30vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    animation: slow-purple-animation 15s ease-in-out infinite;
+}
+
+@keyframes slow-purple-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .hero-text-wrapper {
@@ -374,9 +405,16 @@ main {
     flex-direction: column;
     /* align-items: flex-start; */
     text-align: center;
-    gap: 2rem;
+    gap: 5rem;
     padding: 2rem;
     /* max-width: 60rem; */
+}
+
+.quick-nav-container
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 /* Blog Section */
@@ -453,10 +491,6 @@ main {
     }
 
 
-    .two-column {
-        width: 100%;
-    }
-
     .post-container {
         width: 100%;
         max-width: 35rem;
@@ -481,3 +515,29 @@ main {
     }
 
 }
+
+
+/*
+#hero-section {
+    background-image: linear-gradient(45deg, #a146c2, #7462ff, #922bed, #7462ff);
+    color: white;
+    background-size: 900%;
+    padding-top: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    animation: slow-purple-animation 30s ease-in-out infinite;
+}
+
+@keyframes slow-purple-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+*/
