@@ -280,6 +280,7 @@ main
 
 .post-container
 {
+    will-change: transform;
     width: 30%;
     padding: 1rem;
     padding-top: 1rem;
@@ -409,7 +410,7 @@ main
 .projects-post-container:hover #blog-project-img
 {
     content: url("blog-logo-white-text.svg");
-    transition: 0.1s;
+    transition: 0.5s;
 }
 
 .projects-post-container h3
