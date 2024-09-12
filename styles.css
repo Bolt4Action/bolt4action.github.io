@@ -364,13 +364,13 @@ main {
 
 /* Hero Section */
 
-#hero-section a {
+#hero-section #web-projects-link {
     background-color: white;
     padding: 0rem 0.5rem;
 }
-#hero-section a::after {
+#hero-section #web-projects-link::after {
     content: "Web Developer";
-    font-family: 'Merriweather', 'Times New Roman', Times, serif;
+    /* font-family: 'Merriweather', 'Times New Roman', Times, serif; */
     color: transparent;
     background-clip: text;
     background-image: linear-gradient(45deg, #ed21cf, #7462ff, #4714f0);
