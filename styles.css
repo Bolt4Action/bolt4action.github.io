@@ -552,6 +552,14 @@ main {
         padding-top: 10vh;
     }
 
+    .hero-text-wrapper {
+        width: 22rem;
+        text-align: center;
+    }
+
+    .hero-text-wrapper h2 {
+        font-size: clamp(1rem, 2.5rem, 3.5rem);
+    }
 
 }
 /*
