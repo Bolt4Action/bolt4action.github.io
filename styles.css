@@ -24,7 +24,7 @@ a {
 }
 
 h2 {
-    font-size: clamp(1.5rem, 5vw, 3.5rem);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-family: 'Inter';
 }
 
@@ -127,13 +127,14 @@ body {
     line-height: 1;
     list-style: none;
     overflow: hidden;
-    padding: 0.1rem 2rem;
+    padding: 0.1rem 6rem;
     transition: box-shadow .15s, transform .15s;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
     white-space: nowrap;
     will-change: box-shadow, transform;
+    border: 1px solid black;
 }
 
 .nav-button:focus {
@@ -151,6 +152,10 @@ body {
 .nav-button:active {
     box-shadow: #a940ff 0 3px 7px inset;
     transform: translateY(2px);
+}
+
+.hamburger-button {
+    display: none;
 }
 
 
@@ -365,6 +370,7 @@ main {
 }
 #hero-section a::after {
     content: "Web Developer";
+    font-family: 'Merriweather', 'Times New Roman', Times, serif;
     color: transparent;
     background-clip: text;
     background-image: linear-gradient(45deg, #ed21cf, #7462ff, #4714f0);
@@ -417,7 +423,7 @@ main {
 {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
     gap: 2rem;
 }
 
@@ -503,6 +509,26 @@ main {
     .content-section {
         flex-direction: column;
         padding: 10vw;
+    }
+
+    #hero-section {
+        padding-top: 20vh;
+        justify-content: space-around;
+    }
+
+    .hero-text-wrapper {
+        padding: 0;
+        line-height: normal;
+        text-align: start;
+    }
+
+    .quick-nav-container, .nav-button{
+        display: none;
+    }
+
+    .hamburger-button {
+        display: block;
+        width: 20rem;
     }
 
 
