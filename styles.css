@@ -546,7 +546,14 @@ main {
 
 }
 
+@media screen and (max-width: 720px) {
 
+    #hero-section {
+        padding-top: 10vh;
+    }
+
+
+}
 /*
 #hero-section {
     background-image: linear-gradient(45deg, #a146c2, #7462ff, #922bed, #7462ff);
