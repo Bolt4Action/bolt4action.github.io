@@ -539,19 +539,18 @@ main {
         position: fixed;
         z-index:5;
         width: 100vw;
-        background-image: linear-gradient(45deg, #ed21cf, #7462ff, #4714f0);
         animation: slow-purple-animation 40s ease-in-out infinite;
         height: 100vh;
-        transition: all 0.5s;
     }
-
+    
     .mobile-info-bar {
+        background-image: linear-gradient(45deg, #ed21cf, #7462ff, #4714f0);
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
         padding: 0 1.5rem;
         padding-top: 10vh;
-        max-height: min-content;
+        min-height: 20vh;
         flex-grow: 1;
         /* background-image: linear-gradient(45deg, #ed21cf, #7462ff, #4714f0); */
         background-color: rgba(66, 8, 72, 0.336);
@@ -564,22 +563,37 @@ main {
         background-color: var(--color8);
         border-radius: 50%;
         overflow: hidden;
+        height: 90%;
+        aspect-ratio: 1/1;
         /* width: 30%; */
+    }
+    .mobile-info-photo-wrapper img
+    {
+        width: 100%;
     }
 
     .mobile-info-photo-wrapper img{
         transform: translateX(5px);
     }
-
+    
     .mobile-info-text-wrapper {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 1rem;
+        /* gap: 1rem; */
         color: white;
         font-family: Oswald, sans-serif;
         text-shadow: 2px 1px 5px rgba(74, 9, 80, 0.744);
+        }
+        
+        .mobile-info-text-wrapper h2 {
+            font-size: 2rem;
+            font-family: 'Playwrite Danmark Loopet';
+        }
+        
+        .mobile-info-text-wrapper h3 {
+            font-size: 1rem;
         }
 
     .mobile-menu-section {
@@ -592,11 +606,12 @@ main {
         gap: 0.2rem;
         min-height: 70vh;
         /* background-color: var(--color2); */
+        background-image: linear-gradient(var(--color7), var(--color8));
     }
 
     .mobile-nav-button {
         font-size: 1.5rem;
-        padding: 1rem;
+        padding: 0.5rem 1rem;
         align-items: center;
         background-color: var(--color5);
         border: 0;
@@ -607,13 +622,12 @@ main {
         font-family: Oswald, sans-serif;
         font-weight: bolder;
         font-size: 1.4rem;
-        height: 5.5rem;
+        height: 5rem;
         width: 90%;
         /* justify-content: center; */
         line-height: 1;
         list-style: none;
         overflow: hidden;
-        padding: 0.1rem 6rem;
         transition: box-shadow .15s, transform .15s;
         touch-action: manipulation;
         border: 1px solid black;
@@ -638,7 +652,7 @@ main {
     .mobile-menu-back-button {
     background-color: red;
     justify-content: center;
-    margin-top: 5rem;
+    margin: 5rem 0rem;
     }
 
     
