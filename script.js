@@ -35,5 +35,15 @@ for (let i = 0; i < viewMoreBtn.length; i++) {
 }
 
 
+let mobileMenu = document.querySelector(".mobile-menu");
 
+function toggleMobileMenu() {
+    mobileMenu.classList.toggle("mobile-menu-open");
+}
+
+let mobileMenuBtn = document.querySelector(".mobile-menu-button");
+let mobileMenuCloseBtn = document.querySelector(".mobile-menu-back-button");
+
+mobileMenuBtn.addEventListener("click", toggleMobileMenu);
+mobileMenuCloseBtn.addEventListener("click", toggleMobileMenu);
 
