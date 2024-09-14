@@ -36,9 +36,11 @@ for (let i = 0; i < viewMoreBtn.length; i++) {
 
 
 let mobileMenu = document.querySelector(".mobile-menu");
+let mainMenu = document.querySelector("main");
 
 function toggleMobileMenu() {
     mobileMenu.classList.toggle("mobile-menu-open");
+    mainMenu.classList.toggle("hidden");
 }
 
 let mobileMenuBtn = document.querySelector(".mobile-menu-button");
