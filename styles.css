@@ -162,7 +162,7 @@ body {
     margin-bottom: 3rem;
     height: 10vh;
     background-image: 
-    linear-gradient(45deg, #d01414, #5c2dd3, #8b1db9, #d01414);
+    linear-gradient(45deg, #d014a1, #5c2dd3, #8b1db9, #d014a1);
     animation: slow-purple-animation 15s ease-in-out infinite;
     background-size: 900% 900%;  
 }
