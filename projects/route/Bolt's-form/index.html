@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../../nav.css">
+    <link rel="stylesheet" href="../../../root.css">
+    <link rel="shortcut icon" href="../../../bolt-favicon.png" type="image/x-icon">
+    <title>Bolt's Form 2.0</title>
+</head>
+
+<body>
+    <nav class="white-nav">
+        </div>
+        <a href="../../../index.html" id="landing-link">
+        <div id="blog-logo-container">
+            <img src="../../../bolt-blog-logo2.svg" id="blog-logo">
+            <h1 class="white-nav" id="logo-text">Bolt's Site</h1>
+        </div>
+    </a>
+    </nav>
+    <main>
+        <form class="form-container">
+            <div class="form-title-container">
+                <h2 class="form-title">Bolt's Registeration Form:</h2>
+            </div>
+            <div class="form-content-container">
+                <div class="form-flex-container">
+                    <div class="text-input-box w-45">
+                        <label for="fullName" class="text-label">Full Name:</label>
+                        <input type="text" class="text-input" id="fullName" name="fullName" placeholder="John Doe">
+                    </div>
+                    <div class="text-input-box w-45">
+                        <label for="phoneNumber" class="text-label">Contact Number:</label>
+                        <input type="tel" class="text-input" id="phoneNumber" name="phoneNumber"
+                            placeholder="123-456-7890">
+                    </div>
+                    <div class="text-input-box">
+                        <label for="email" class="text-label">Email Address:</label>
+                        <input type="email" class="text-input" id="email" name="email" placeholder="user@example.com">
+                    </div>
+                    <div class="text-input-box w-45">
+                        <label for="password" class="text-label">Password:</label>
+                        <input type="password" class="text-input" id="password" name="password" placeholder="********">
+                    </div>
+                    <div class="text-input-box w-45">
+                        <label for="password" class="text-label">Re-confirm Password:</label>
+                        <input type="password" class="text-input" id="password" name="password" placeholder="********">
+                    </div>
+                    <div class="text-input-box">
+                        <label class="outter-label">Highest Education Level</label>
+                        <div class="option-container">
+                            <div class="option-wrapper">
+                                <input type="radio" name="education" id="h-school" name="education">
+                                <label for="h-school">High School</label>
+                            </div>
+                            <div class="option-wrapper">
+                                <input type="radio" name="education" id="under-grad" name="education">
+                                <label for="under-grad">Undergraduate</label>
+                            </div>
+                            <div class="option-wrapper">
+                                <input type="radio" name="education" id="masters-deg" name="education">
+                                <label for="masters-deg">Master's</label>
+                            </div>
+                            <div class="option-wrapper">
+                                <input type="radio" name="education" id="PhD" name="education">
+                                <label for="PhD">PhD</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-input-box w-45">
+                        <label class="outter-label">Gender</label>
+                        <div class="option-container">
+                            <div class="option-wrapper">
+                                <input type="radio" id="male" name="gender" value="male">
+                                <label for="male">Male</label>
+                            </div>
+                            <div class="option-wrapper">
+                                <input type="radio" id="female" name="gender" value="female">
+                                <label for="female">Female</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-input-box w-45">
+                        <label class=" outter-label">Continent of Origin</label>
+                        <div class="option-container">
+                            <select name="continent" id="">
+                                <option value="EU">Europe</option>
+                                <option value="AF">Africa</option>
+                                <option value="AM">America</option>
+                                <option value="AS">Asia</option>
+                                <option value="OC">Oceania</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-image-container">
+                    <label for="image" class="personal-image-container">
+                        <img src="cloud2.svg" alt="cloud upload image">
+                        <p>Please upload your personal image</p>
+                        <input type="file" name="image" id="image">
+                    </label>
+                </div>
+                <div class="form-checkbox-container">
+                    <div class="option-wrapper">
+                        <input type="checkbox" name="terms" id="terms">
+                        <label for="terms">I agree to Bolt's Site <span class="fake-link">Terms of
+                                Service</span>.</label>
+                    </div>
+                    <div class="option-wrapper">
+                        <input type="checkbox" name="newsletter" id="newsletter">
+                        <label for="newsletter">I want to recieve the latest news from Bolt via a newsletter.</label>
+                    </div>
+                </div>
+            </div>
+            <button>Submit</button>
+            </div>
+        </form>
+    </main>
+    <script src="../../../script.js"></script>
+</body>
+
+</html>
