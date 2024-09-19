@@ -167,9 +167,21 @@ body {
     background-size: 900% 900%;  
 }
 
-
-/*Navigation & Blog Logo*/
-
+.beta-alert
+{
+    position: fixed;
+    bottom: 1%;
+    right: -100%;
+    text-align: center;
+    font-weight: bold;
+    width: min(30rem, 100%);
+    background-color: rgba(242, 242, 242, 0.667);
+    color: var(--color5);
+    backdrop-filter: blur(5px);
+    padding: 1rem;
+    border-radius: 16px;
+    z-index: 50;
+}
 
 
 /*Main Page*/

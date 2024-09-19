@@ -55,15 +55,32 @@ mobileMenuCloseBtn.addEventListener("click", toggleMobileMenu);
 
 //Hide navbar on scroll
 
-let prevScrollpos = window.scrollY;
-window.onscroll = function () {
-    let currentScrollPos = window.scrollY;
-    if (prevScrollpos > currentScrollPos) {
-        document.querySelector("nav").style.top = "0";
-    } else {
-        document.querySelector("nav").style.top = "-200px";
-    }
-    prevScrollpos = currentScrollPos;
-}
+// let prevScrollpos = window.scrollY;
+// window.onscroll = function () {
+//     let currentScrollPos = window.scrollY;
+//     if (prevScrollpos > currentScrollPos) {
+//         document.querySelector("nav").style.top = "0";
+//     } else {
+//         document.querySelector("nav").style.top = "-200px";
+//     }
+//     prevScrollpos = currentScrollPos;
+// }
 
 
+//Beta alert timeout
+
+let betaAlert = document.querySelector(".beta-alert");
+betaAlert.style.transition = "right 1.5s ease-in-out";
+
+
+setTimeout(() => {
+    betaAlert.style.right = "1%";
+}, 500)
+
+setTimeout(() => {
+    betaAlert.style.right = "-100%";
+}, 6000)
+
+setTimeout(() => {
+    betaAlert.style.display ="none";
+}, 10000)
