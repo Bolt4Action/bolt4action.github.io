@@ -420,11 +420,6 @@ main {
     object-fit: contain;
 }
 
-.projects-post-container:hover #blog-project-img {
-    content: url("blog-logo-white-text.svg");
-    transition: 0.5s;
-}
-
 .projects-post-container h3 {
     font-size: 1.2rem
 }
