@@ -198,7 +198,42 @@ main {
     justify-content: space-between;
     align-items: baseline;
     flex-wrap: wrap;
+    /* opacity: 0.5; */
+    position: relative;
 }
+
+.WIP-overlay
+{
+    backdrop-filter: blur(3px);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0);
+    z-index: 10;
+}
+
+.WIP-overlay:hover .WIP-wrapper
+{
+    scale: 1.1;
+    transition: 0.2s;
+}
+
+.WIP-wrapper
+{
+    background-color: yellow;
+    text-align: center;
+    font-size: 3rem;
+    border-radius: 16px;
+    font-family: 'Oswald', sans-serif;
+    width: 100%;
+    transform: rotate(-45deg);
+}
+
+
 
 .category {
     width: fit-content;

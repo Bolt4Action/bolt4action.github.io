@@ -1,3 +1,6 @@
+
+
+// Navigation color change
 let nav = document.getElementsByTagName("nav")[0];
 let logoText = document.getElementById("logo-text");
 
@@ -9,8 +12,7 @@ function switchNavColor() {
         logoText.classList.add("purple-nav");
     }
 
-    else
-    {
+    else {
         nav.classList.remove("purple-nav");
         nav.classList.add("white-nav");
         logoText.classList.remove("purple-nav");
@@ -19,9 +21,10 @@ function switchNavColor() {
 }
 
 
-nav.addEventListener("click",switchNavColor);
+nav.addEventListener("click", switchNavColor);
 
 
+// View More button
 let viewMoreBtn = document.getElementsByClassName("view-more-btn");
 
 function buttonRemove() {
@@ -34,7 +37,7 @@ for (let i = 0; i < viewMoreBtn.length; i++) {
     viewMoreBtn[i].addEventListener("mouseup", buttonRemove);
 }
 
-
+// Mobile Menu
 let mobileMenu = document.querySelector(".mobile-menu");
 let mainMenu = document.querySelector("main");
 
@@ -48,4 +51,19 @@ let mobileMenuCloseBtn = document.querySelector(".mobile-menu-back-button");
 
 mobileMenuBtn.addEventListener("click", toggleMobileMenu);
 mobileMenuCloseBtn.addEventListener("click", toggleMobileMenu);
+
+
+//Hide navbar on scroll
+
+let prevScrollpos = window.scrollY;
+window.onscroll = function () {
+    let currentScrollPos = window.scrollY;
+    if (prevScrollpos > currentScrollPos) {
+        document.querySelector("nav").style.top = "0";
+    } else {
+        document.querySelector("nav").style.top = "-200px";
+    }
+    prevScrollpos = currentScrollPos;
+}
+
 

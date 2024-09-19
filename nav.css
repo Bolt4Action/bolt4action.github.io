@@ -5,7 +5,7 @@ nav {
     height: 4.2rem;
     width: 100vw;
     justify-content: center;
-    z-index: 10;
+    z-index: 100;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.403);
     user-select: none;
 }
@@ -25,13 +25,13 @@ nav {
     margin-right: 30px;
     display: flex;
     align-items: center;
-    z-index: 10;
+    z-index: 100;
 }
 
 #blog-logo {
     margin-right: 0.5rem;
     width: 3rem;
-    z-index: 10;
+    z-index: 100;
 }
 
 #blog-logo-container::after {
