@@ -84,3 +84,7 @@ setTimeout(() => {
 setTimeout(() => {
     betaAlert.style.display ="none";
 }, 10000)
+
+function hide(element) {
+    element.style.display = "none";
+}
