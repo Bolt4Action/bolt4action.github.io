@@ -28,7 +28,7 @@
     }
 
     .quick-nav-container,
-    .nav-button {
+    .landing-nav-button {
         display: none;
     }
 
@@ -74,6 +74,25 @@
         width: 100vw;
         animation: slow-purple-animation 40s ease-in-out infinite;
         height: 100vh;
+    }
+
+    #projects-landing-section
+    {
+        align-items: center;
+    }
+
+    #projects-landing-section button
+    {
+        width: 100%;
+        position: sticky; /*need to understand position sticky */
+        display: none;
+        top: 0;
+    }
+    
+    .projects-landing-nav-area
+    {
+        flex-direction: column;
+        align-items: center;
     }
 
 }
