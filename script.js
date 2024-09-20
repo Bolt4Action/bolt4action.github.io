@@ -33,9 +33,9 @@ function buttonRemove() {
     this.innerText = "Working on more, Stay Tuned !";
 }
 
-for (let i = 0; i < viewMoreBtn.length; i++) {
-    viewMoreBtn[i].addEventListener("mouseup", buttonRemove);
-}
+// for (let i = 0; i < viewMoreBtn.length; i++) {
+//     viewMoreBtn[i].addEventListener("mouseup", buttonRemove);
+// }
 
 // Mobile Menu
 let mobileMenu = document.querySelector(".mobile-menu");
