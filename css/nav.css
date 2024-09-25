@@ -12,10 +12,11 @@
     --accent3: #37bfe8;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&display=swap');
 
 
-*
-{
+
+* {
     box-sizing: border-box;
     margin: 0;
 }
@@ -100,12 +101,10 @@ h1.purple-nav {
     transition: 0.1s;
 }
 
-#landing-link
-{
+#landing-link {
     text-decoration: none;
 }
 
-a#landing-link
-{
+a#landing-link {
     text-decoration: none;
 }
