@@ -32,7 +32,7 @@
 
 *::selection {
     background-color: var(--primary-color1);
-    color: var(--text-color1);
+    color: var(--light-text-color3);
 }
 
 html {
@@ -272,9 +272,11 @@ section {
 .landing-section .button-wrapper
 {
     width: 70%;
+    min-width: max-content;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
 }
 
 .video-button
@@ -487,6 +489,101 @@ textarea:focus {
     outline: none;
 }
 
+footer {
+    background-color: var(--dark-background2);
+    color: var(--dark-text-color1);
+    padding: 30px 100px;
+    display: flex;
+}
+
+footer h1
+{
+    color: var(--dark-text-color1);
+}
+
+footer h4
+{
+    font-size: 1.2rem;
+}
+
+footer .flex-container
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .flex-container .flex-column
+{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+footer .flex-column > h4
+{
+    text-align: center;
+}
+
+footer .flex-container .flex-column:nth-of-type(2)
+{
+    width: 45%;
+    align-items: center;
+}
+
+footer .flex-container .flex-column form
+{
+    width: 100%;
+    min-height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer .flex-container .flex-column form input
+{
+    width: 70%;
+}
+
+footer .flex-container .flex-column form button
+{
+    width: 30%;
+    border-radius: 0;
+}
+
+footer ul
+{
+    columns: 2;
+}
+
+
+.icon-text-wrapper
+{
+    display: flex;
+    gap: 15px;
+}
+
+.icon-text-wrapper i
+{
+    font-size: 1.5rem;
+    color: var(--primary-color1);
+}
+
+
+
+.social-media-icons
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.social-media-icons i
+{
+    font-size: 1.5rem;
+}
+
 
 @media screen and (max-width: 1200px) {
 
@@ -510,7 +607,7 @@ textarea:focus {
 
     nav .nav-right {
         position: absolute;
-        right: 25px;
+        right: 0;
     }
 
     .nav-right .mobile-main-button {
@@ -541,6 +638,12 @@ textarea:focus {
     .landing-section {
         flex-direction: column;
         padding: 100px 0;
+    }
+
+    .landing-section .button-wrapper
+    {
+        width: 100%;
+        justify-content: space-evenly;
     }
     
     
@@ -595,5 +698,29 @@ textarea:focus {
 
     input.w-49 {
         width: 100%;
+    }
+
+
+    footer
+    {
+        flex-direction: column;
+        padding: 30px;
+        gap: 30px;
+    }
+    
+    footer .flex-container form
+    {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+    footer .flex-container
+    {
+        flex-direction: column;
+    }
+
+    footer .flex-container .flex-column
+    {
+        width: 100% !important;
+        margin: 20px 0;
     }
 }

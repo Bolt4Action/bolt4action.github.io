@@ -4,31 +4,37 @@
     document.getElementsByClassName("mobile-menu")[0].classList.toggle("mobile-menu-active")
 
     for (let i = 0; i < allSections.length; i++) {
-        allSections[i].style.filter = "blur(5px)";
-        allSections[i].style.filter = "brightness(50%)";
+        allSections[i].style.filter = "brightness(50%)" + "blur(2px)";
     }
     mobileMenu.style.left = "50%"
+    mobileMenu.style.display = "block";
 })
 
 document.getElementsByClassName("mobile-menu-close-button")[0].addEventListener("click", () => {
-    document.getElementsByClassName("mobile-menu")[0].classList.toggle("mobile-menu-active")
+   mobileMenu.classList.toggle("mobile-menu-active")
 
     for (let i = 0; i < allSections.length; i++) {
         allSections[i].style.filter = "none";
     }
-    mobileMenu.style.left = "100%"
+    mobileMenu.style.left = "120%"
+    // setTimeout(() => {
+    //     mobileMenu.style.display = "none";
+    // }, 500)
 })
 
 let navLinks = document.getElementsByClassName("nav-link");
 
 for (let i = 0; i < navLinks.length; i++) {
     document.getElementsByClassName("nav-link")[i].addEventListener("click", () => {
-        document.getElementsByClassName("mobile-menu")[0].classList.toggle("mobile-menu-active")
-    
+        mobileMenu.classList.toggle("mobile-menu-active")
+        
         for (let i = 0; i < allSections.length; i++) {
             allSections[i].style.filter = "none";
         }
-        mobileMenu.style.left = "100%"
+        mobileMenu.style.left = "120%"
+        // setTimeout(() => {
+        //     mobileMenu.style.display = "none";
+        // }, 200)
     })
 }
 
