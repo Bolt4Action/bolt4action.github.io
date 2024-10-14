@@ -1,3 +1,8 @@
+img
+{
+    width: 100%;
+}
+
 #projects-landing-section {
     width: 100vw;
     min-height: 100vh;
@@ -6,7 +11,8 @@
     justify-content: flex-start;
     align-items: flex-start;
     gap: 2rem;
-    padding: 5rem;    
+    padding:clamp(2rem, 10vw, 5rem);    
+    padding-top: 80px;
     font-family: 'Oswald', sans-serif;
 }
 
@@ -32,4 +38,36 @@
 .subcont
 {
     min-width: 10rem;
+}
+
+.preview-placeholder
+{
+    text-align: center;
+}
+
+.boltify-preview
+{
+    font-family: 'Open Sans' , sans-serif;
+    font-weight: bolder;
+    color: black;
+    background-color: white;
+    font-size: clamp(1.5rem, 10vw, 4rem);
+    border-radius: 16px;
+    transition: 0.2s;
+}
+
+.projects-post-container:hover .boltify-preview
+{
+    color: white;
+    background-color: black;
+}
+
+.projects-post-container:hover .red-highlight
+{
+    color: orange;
+}
+
+.red-highlight
+{
+    color: red;
 }
