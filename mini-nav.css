@@ -1,0 +1,56 @@
+.mini-nav-container
+{
+    position: fixed;
+    top: 10%;
+    width: 50px;
+    z-index: 20;
+}
+
+
+.mini-logo-container {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    width: 100px;
+    height: 50px;
+    background-color: #C3B2ED;
+    border-radius: 0 120px 120px 0;
+    opacity: 0.3;
+    position: relative;
+    z-index: 1;
+}
+
+.mini-logo-container::after {
+    content: "";
+    position: absolute;
+    top: -25%;
+    right: 50%;
+    width: 100%;
+    height: 150%;
+    background-color: #C3B2ED;
+    border-radius: 0 120px 120px 0;
+    opacity: 0.3;
+    transition: 0.4s;
+    z-index: -1;
+}
+
+
+
+.mini-logo-container:hover {
+    justify-content: flex-end;
+    width: 12rem;
+    opacity: 1;
+    transition: 0.4s;
+}
+
+.mini-logo-container:hover img {
+    transition: 0.4s;
+}
+
+.mini-logo-container img {
+    width: 70%;
+}
+
+#landing-link:active img {
+    scale: 0.9;
+}
