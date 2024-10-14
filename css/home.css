@@ -126,9 +126,14 @@ main {
     transform: rotate(-45deg);
 }
 
+.category-container
+{
+    display: flex;
+    gap: 10px;
+}
 
 
-.category {
+.category-tag {
     width: fit-content;
     background-color: rgb(232, 232, 232);
     color: black;
@@ -141,7 +146,7 @@ main {
     font-weight: 400;
 }
 
-.category:hover {
+.category-tag:hover {
     color: #6A3ED9;
     font-weight: 500;
 }

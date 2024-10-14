@@ -548,7 +548,6 @@ footer .flex-container .flex-column form input
 
 footer .flex-container .flex-column form button
 {
-    width: 30%;
     border-radius: 0;
 }
 
@@ -632,7 +631,7 @@ footer ul
     }
 
     section {
-        padding: 10px;
+        padding: 15px;
     }
 
     .landing-section {
@@ -676,6 +675,7 @@ footer ul
     .gallery-img-container {
         max-height: none;
     }
+
 
     .img-wrapper {
         width: 100%;
