@@ -67,6 +67,16 @@
     background-image: linear-gradient(var(--color7), var(--color8));
 }
 
+.mobile-menu-nav-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0.5rem;
+    height: 50vh;
+    width: 100%;
+}
+
 a:has(.mobile-nav-button) {
     width: 100%;
     text-align: center;
@@ -85,7 +95,7 @@ a:has(.mobile-nav-button) {
     font-family: Oswald, sans-serif;
     font-weight: bolder;
     font-size: 1.4rem;
-    height: 5rem;
+    min-height: 4rem;
     width: 90%;
     /* justify-content: center; */
     line-height: 1;
@@ -115,7 +125,7 @@ a:has(.mobile-nav-button) {
 .mobile-menu-back-button {
     background-color: red;
     justify-content: center;
-    margin: 5rem 0rem;
+    /* margin: 5rem 0rem; */
 }
 
 
