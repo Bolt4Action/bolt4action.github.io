@@ -7,15 +7,11 @@
 
 html {
     background-color: rgba(238, 238, 238, 0.504);
-    height: 100vh;
-    width: 100vw;
+    /* height: 100vh;
+    width: 100vw; */
     overflow-x: hidden;
 }
 
-body {
-    height: 100%;
-    width: 100%;
-}
 
 .bar1 {
     width: 100%;
