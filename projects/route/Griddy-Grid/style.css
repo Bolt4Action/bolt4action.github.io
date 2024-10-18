@@ -1,0 +1,457 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* Components */
+.sub-header1 {
+    color: #9FA3A7;
+    font-size: .8rem;
+    line-height: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.header2 {
+    font-family: 'Arvo', serif;
+}
+
+.text-strong {
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.sales-tag {
+    display: flex;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+
+.img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.arrow {
+    font-size: 1.1rem;
+}
+
+.semi-transparent-circle {
+    background-color: rgba(0, 0, 0, 0.035);
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    padding: 15px;
+}
+
+.semi-transparent-circle--light {
+    background-color: rgba(0, 0, 0, 0.1);
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    padding: 15px;
+}
+
+.circular-btn {
+    border-radius: 48px;
+    padding: 18px 28px;
+    border: none;
+}
+
+/* Utilities */
+
+/* Layout Utilities */
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-column-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-two-column {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.align-self-start {
+    align-self: flex-start;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+/* Font Utilities */
+
+.font-light {
+    font-weight: 300;
+}
+
+.font-lighter
+{
+    font-weight: 200;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.font-medium-small
+{
+    font-size: 0.6rem;
+}
+
+.font-large
+{
+    font-size: 1.4rem;
+}
+
+.font-xlarge {
+    font-size: 2.25rem;
+}
+
+
+/* Color Utilities */
+
+
+.text-yellow {
+    color: #FFC80A;
+}
+
+.text-blue {
+    color: #27B9C2;
+}
+
+.text-gray {
+    color: #C5C5C6;
+}
+
+.text-dark-grey {
+    color: #333333;
+}
+
+.text-white {
+    color: #FFFFFF;
+}
+
+.bg-white {
+    background-color: #FFFFFF;
+}
+
+.bg-light-gray {
+    background-color: #F7F8F9;
+}
+
+.bg-dark-grey {
+    background-color: #2C2C2C;
+}
+
+.bg-red {
+    background-color: #F05638;
+}
+
+.bg-yellow {
+    background-color: #FFC80A;
+}
+
+.bg-green {
+    background-color: #7BC424;
+}
+
+.bg-cyan {
+    background-color: #38D5F4;
+}
+
+.bg-violet {
+    background-color: #8F76BC;
+}
+
+.bg-olive {
+    background-color: #93B6B7;
+}
+
+/* Spacing Utilities */
+
+.gap5px {
+    gap: 5px;
+}
+
+.gap10px {
+    gap: 10px;
+}
+
+.gap25px {
+    gap: 25px;
+}
+
+.w-200px
+{
+    width: 200px;
+}
+
+.w-250px
+{
+    width: 250px;
+}
+
+.w300px
+{
+    width: 300px;
+}
+
+
+/* Other Utiltities */
+
+.clickable {
+    cursor: pointer;
+}
+
+
+
+/* Main */
+
+.grid-container {
+    display: grid;
+}
+
+section {
+    padding: 64px 24px;
+    background-color: white;
+}
+
+
+.header1 {
+    font-family: 'Arvo', serif;
+    font-size: calc(2rem + 1vw);
+    font-weight: 200;
+    max-width:500px;
+}
+
+.mobile-section {
+    padding-bottom: 0;
+}
+
+.mobile-section .img-wrapper img {
+    width: 70%;
+    max-width: 300px;
+}
+
+.keyboard-section h2 {
+    font-weight: 600;
+    width: 200px;
+}
+
+.gamepad-section .img-wrapper {
+    position: relative;
+    left: 20px;
+    align-self: flex-start;
+    margin: 0;
+    width: 75%;
+    /* max-width: 200px; */
+}
+
+.gamepad-section .header2 {
+    font-weight: 200;
+}
+
+.imac-section
+{
+    overflow: hidden;
+}
+
+.imac-section .img-wrapper {
+    width: 175%;
+    position: relative;
+    right: 95%;
+}
+
+.twitter-section {
+    padding: 0;
+}
+
+.twitter-section .img-wrapper {
+    width: 22%;
+}
+
+.twitter-section .header2 {
+    width: 200px;
+}
+
+.laptop-section {
+    padding-top: 20px;
+    padding-bottom: 0;
+    position: relative;
+}
+
+.laptop-section .img-wrapper {
+    width: 90%;
+    align-self: flex-start;
+    position: relative;
+    right: 25px;
+    margin: 0;
+    z-index: 0;
+}
+
+.laptop-section .img-wrapper img:nth-child(2) {
+    position: absolute;
+    left: 62%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    width: 88%;
+    z-index: -1;
+}
+
+.floppy-section h2 ~ p {
+    width: 288px;
+}
+
+
+.floppy-container .img-wrapper {
+    width: 70%;
+}
+
+.tv-section {
+    padding-top: 0;
+}
+
+.tv-section .img-wrapper {
+    width: 75%;
+    margin: initial;
+    margin-right: auto;
+}
+
+
+@media screen and (min-width: 620px) {
+    .flex-two-column {
+        flex-direction: row;
+    }
+
+    .flex-column {
+        width: 50%;
+    }
+
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .title-section,
+    .mobile-section,
+    .imac-section,
+    .tv-section,
+    .idk-white-section {
+        grid-column-end: span 2;
+    }
+
+
+    .mobile-section .text-container {
+        justify-content: center;
+        padding-bottom: 64px;
+    }
+
+    .mobile-section .img-wrapper img {
+        width: 80%;
+    }
+
+    .imac-section,
+    .tv-section {
+        padding-bottom: 0;
+    }
+
+    .floppy-section {
+        grid-row: 5 / 7;
+        grid-column: 2;
+    }
+
+    .twitter-section {
+        grid-row-end: span;
+    }
+
+    .laptop-section {
+        justify-content: space-between;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    
+    .tv-section h3 {
+        width: 250px;
+    }
+    
+    .mobile-section
+    {
+        padding-left: 85px;
+    }
+    
+    /* Grid Layout Using Grid Area */
+    .grid-container {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+            "mobile mobile title title"
+            "keyboard imac imac floppy"
+            "gamepad laptop laptop floppy"
+            "twitter idk-white tv tv";
+    }
+
+    .mobile-section {grid-area:mobile}
+    .title-section {grid-area:title}
+    .keyboard-section {grid-area:keyboard}
+    .gamepad-section {grid-area:gamepad}
+    .imac-section {grid-area:imac}
+    .floppy-section {grid-area:floppy}
+    .laptop-section {grid-area:laptop}
+    .twitter-section {grid-area:twitter}
+    .idk-white-section {grid-area:idk-white}
+    .tv-section {grid-area:tv}
+
+
+
+    /* Grid Layout Using Grid Rows & Columns */
+    .grid-container {grid-template-columns: repeat(4, 1fr)}
+    .title-section {grid-column: 3 / 5}
+    .mobile-section {grid-column: 1 / 3; grid-row: 1 / 2}
+    .keyboard-section {grid-column: 1 / 2}
+    .imac-section {grid-column: 2 / 4; grid-row: 2 / 3}
+    .floppy-section {grid-column: 4 / 5; grid-row: 2 / 4}
+    .gamepad-section {grid-column: 1 / 2}
+    .laptop-section {grid-column: 2 / 4; grid-row: 3 / 4}
+    .tv-section {grid-column: 3 / 5}
+    .idk-white-section {grid-column: 2 / 3}
+
+}

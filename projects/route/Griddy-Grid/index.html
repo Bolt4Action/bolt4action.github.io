@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gridy Grid</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="grid-container">
+        <section class="title-section flex-column-center space-between bg-light-gray gap25px">
+            <h3 class="sub-header1">Learn More</h3>
+            <h1 class="header1 text-align-center text-dark-grey">How to Use Rotary Evaporator in Chemical Labs</h1>
+            <a href="" class="text-blue">
+                <h4 class="font-light clickable">Download Now</h4>
+            </a>
+        </section>
+        <section class="mobile-section flex-two-column flex-column-center">
+            <div class="text-container  flex-column flex-center gap25px w-200px">
+                <h4 class="sub-header1">iphone 6s</h4>
+                <h2 class="header2 font-light">3D Touch. 12MP photos. 4K video.One powerful phone</h3>
+                    <p class="text-gray">Learn more or visit an Apple Store today
+                    </p>
+            </div>
+            <div class="img-wrapper flex-column">
+                <img src="imgs/mobile.png" alt="photo of a mobile">
+            </div>
+        </section>
+        <section class="keyboard-section flex-column-center bg-red gap25px">
+            <div class="img-wrapper">
+                <img src="imgs/keybaord.png" alt="image of a keybaord">
+            </div>
+            <h2 class=" header2 text-white text-align-center">Our Brand New Keybaord</h2>
+            <p class="text-strong text-yellow clickable">Learn <span class="arrow">›</span></p>
+        </section>
+        <section class="gamepad-section flex-column-center bg-light-gray gap25px">
+            <div class="img-wrapper">
+                <img src="imgs/gamepad.png" alt="image of a gamepad">
+            </div>
+            <h2 class="header2">Games are our passion</h2>
+            <p class="text-strong text-blue clickable">Learn <span class="arrow">›</span></p>
+        </section>
+        <section class="imac-section flex-two-column">
+            <div class="flex-column space-between gap25px">
+                <h4 class="sub-header1">IMAC.RETINA</h4>
+                <h2 class="header2 font-light">Hardly a month passes these days where
+                </h2 class="header2 font-light">
+                <div class="img-wrapper">
+                    <img src="imgs/imac.png" alt="image of an imac">
+                </div>
+            </div>
+            <div class="flex-column gap25px">
+                <p class="text-gray">Apple may be experimenting in the virtual reality space. The company has been
+                    granted a
+                    patent for a head-mounted virtual reality device that would use the iPhone screen as the display.
+                </p>
+                <p class="text-strong text-blue clickable">Download Now <span class="arrow">›</span></p>
+            </div>
+        </section>
+        <section class="twitter-section flex-column-center bg-cyan">
+            <div class="semi-transparent-circle flex-column-center gap10px">
+                <div class="img-wrapper">
+                    <img src="imgs/twitter.png" alt="image of a twitter">
+                </div>
+                <h2 class="header2 text-white font-light text-align-center">Connect with Twitter</h2>
+            </div>
+        </section>
+        <section class="laptop-section flex-column-center bg-olive gap25px">
+            <div class="sales-tag bg-red text-white align-self-start">Best Choice</div>
+            <h2 class="header2 text-white text-align-center w-250px">Much Much Better Experience</h2>
+            <div class="img-wrapper">
+                <img src="imgs/laptop.png" alt="image of a laptop">
+                <img src="imgs/ux.png" alt="">
+            </div>
+        </section>
+        <section class="floppy-section bg-violet flex-column-center gap25px">
+            <div class="floppy-container semi-transparent-circle--light flex-column-center gap10px">
+                <div class="sales-tag bg-violet text-white font-medium-small  flex-center gap5px">
+                    <i class="fa-solid fa-flag text-yellow"></i>
+                    <p>Popular</p>
+                </div>
+                <div class="img-wrapper">
+                    <img src="imgs/floppy.png" alt="image of a floppy disk">
+                </div>
+                <h5 class="text-white">MEET</h5>
+            </div>
+            <h2 class="header2 font-xlarge font-bold text-white">iCloud</h2>
+            <p class="text-white text-align-center">
+                With iCloud, you always have the latest versions of your most important things — like documents, apps,
+                notes, and contacts — on whatever device you’re using.
+            </p>
+            <button class="circular-btn text-strong bg-yellow clickable">LEARN MORE</button>
+        </section>
+        <section class="idk-white-section flex-column-center gap10px">
+            <div class="sales-tag bg-green text-white">Popular</div>
+            <h2 class="header2 font-lighter text-align-center w-250px">Much Much Better Experience</h2 class="header2 font-light">
+        </section>
+        <section class="tv-section flex-two-column flex-column-center bg-dark-grey">
+            <div class="flex-column">
+                <div class="img-wrapper">
+                    <img src="imgs/tv.png" alt="image of a tv">
+                </div>
+            </div>
+            <div class="flex-column">
+                <h3 class=" header2 text-white font-light font-large">More than just a display, it's a vision.</h3>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
