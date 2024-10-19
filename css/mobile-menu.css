@@ -5,7 +5,7 @@
     align-items: center;
     padding: 0 1.5rem;
     padding-top: 10vh;
-    height: 20vh;
+    height: 15vh;
     flex-grow: 1;
     /* background-image: linear-gradient(45deg, #ed21cf, #7462ff, #4714f0); */
     background-color: rgba(66, 8, 72, 0.336);
@@ -59,9 +59,9 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 1rem 3rem 1rem;
+    padding: 1rem 1rem 8rem 1rem;
     flex-grow: 3;
-    gap: 0.2rem;
+    gap: 0.1rem;
     min-height: 70vh;
     /* background-color: var(--color2); */
     background-image: linear-gradient(var(--color7), var(--color8));
