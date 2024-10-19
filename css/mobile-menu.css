@@ -5,7 +5,7 @@
     align-items: center;
     padding: 0 1.5rem;
     padding-top: 10vh;
-    height: 15vh;
+    min-height: 150px;
     flex-grow: 1;
     /* background-image: linear-gradient(45deg, #ed21cf, #7462ff, #4714f0); */
     background-color: rgba(66, 8, 72, 0.336);
@@ -59,7 +59,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 1rem 8rem 1rem;
+    padding: 2rem 1rem 3rem 1rem;
     flex-grow: 3;
     gap: 0.1rem;
     min-height: 70vh;
@@ -83,7 +83,7 @@ a:has(.mobile-nav-button) {
 }
 
 .mobile-nav-button {
-    font-size: 1.5rem;
+    font-size: calc(1.2rem + 0.5vw);
     padding: 0.5rem 1rem;
     align-items: center;
     background-color: var(--color5);
@@ -94,7 +94,6 @@ a:has(.mobile-nav-button) {
     display: inline-flex;
     font-family: Oswald, sans-serif;
     font-weight: bolder;
-    font-size: 1.4rem;
     min-height: 4rem;
     width: 90%;
     /* justify-content: center; */
