@@ -83,7 +83,7 @@ ul {
     background-image: url(../imgs/hero-bg2.jpg);
     background-position: center;
     background-size: cover;
-    min-height: 110vh;
+    min-height: 105vh;
 }
 
 #hero-section>* {
