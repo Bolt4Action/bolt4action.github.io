@@ -171,23 +171,26 @@ window.addEventListener("scroll", () => {
                 clearInterval(intervalID1);
             }
         }, 5)
-        let flag2 = false;
-        setInterval(() => {
+        let countersIntervalFlag2 = false;
+        let intervalID2 = setInterval(() => {
             if (counterValue1 <= 450 && counterValue1 >= 430) {
                 counterNumbers[0].innerHTML = counterValue1++;
-                flag2 = true;
+                countersIntervalFlag2 = true;
             }
             if (counterValue2 <= 25) {
                 counterNumbers[1].innerHTML = counterValue2++;
-                flag2 = true;
+                countersIntervalFlag2 = true;
             }
             if (counterValue3 <= 550 && counterValue3 >= 530) {
                 counterNumbers[2].innerHTML = counterValue3++;
-                flag2 = true;
+                countersIntervalFlag2 = true;
             }
             if (counterValue4 <= 48 && counterValue4 >= 15) {
                 counterNumbers[3].innerHTML = counterValue4++;
-                flag2 = true;
+                countersIntervalFlag2 = true;
+            }
+            if (!countersIntervalFlag2) {
+                clearInterval(intervalID2);
             }
         }, 100)
     }
