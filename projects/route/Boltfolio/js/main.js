@@ -56,7 +56,7 @@ function animatedFooter() {
     
     setTimeout(() => {
         dancingFooterDisplayBoltfolio();
-    }, 8000);
+    }, 7000);
 }
 
 
