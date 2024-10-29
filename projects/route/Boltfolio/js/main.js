@@ -53,7 +53,7 @@ function animatedFooter() {
     setTimeout(() => {
         dancingFooterDisplayBootstrap();
     }, 2000);
-    
+
     setTimeout(() => {
         dancingFooterDisplayBoltfolio();
     }, 7000);
@@ -89,15 +89,16 @@ window.onscroll = function () {
 // Change active navbar link on scroll
 
 let sections = document.querySelectorAll("section");
+let activeSection;
+let sectionTops = [];
 window.addEventListener("scroll", () => {
-    let activeSection;
-    let sectionTops = [];
+    sectionTops = [];
     for (let i = 0; i < sections.length; i++) {
         sectionTops.push(sections[i].getBoundingClientRect().top)
     }
     for (let i = 0; i < sectionTops.length; i++) {
 
-        if (sectionTops[i] <= 250) {
+        if (sectionTops[i] <= 300) {
             activeSection = i;
         }
     }
@@ -107,3 +108,87 @@ window.addEventListener("scroll", () => {
     navLinks[activeSection].classList.add("active");
 })
 
+
+
+
+//Scroll Animations
+//Animate progress bars
+
+let progressBars = document.querySelectorAll(".progress-bar");
+
+function animateProgressBar() {
+    if (activeSection === 1) {
+        for (let i = 0; i < progressBars.length; i++) {
+            progressBars[i].classList.remove("progress-bar-empty");
+        }
+    }
+}
+
+window.addEventListener("scroll", animateProgressBar);
+
+//Animated about paragraphs
+let aboutParagraphs = document.querySelectorAll("#about-section p");
+
+function animateAboutParagraphs() {
+    if (activeSection === 1) {
+        for (let i = 0; i < aboutParagraphs.length; i++) {
+            aboutParagraphs[i].classList.remove("hidden");
+        }
+    }
+}
+
+window.addEventListener("scroll", animateAboutParagraphs);
+
+//Animated counters
+
+let counterNumbers = document.querySelectorAll("#counters-section .counter-number");
+
+let counterValue1 = 0, counterValue2 = 0, counterValue3 = 0, counterValue4 = 0;
+
+let countersIntervalFlag1 = false;
+let countersFlag = true;
+window.addEventListener("scroll", () => {
+    if (sectionTops[3] < 600 && countersFlag) {
+        countersFlag = false;
+        let intervalID1 = setInterval(() => {
+            if (counterValue1 <= 430) {
+                counterNumbers[0].innerHTML = counterValue1++;
+                countersIntervalFlag1 = true;
+            }
+            if (counterValue2 <= 0) {
+                counterNumbers[1].innerHTML = counterValue2++;
+                countersIntervalFlag1 = true;
+            }
+            if (counterValue3 <= 530) {
+                counterNumbers[2].innerHTML = counterValue3++;
+                countersIntervalFlag1 = true;
+            }
+            if (counterValue4 <= 15) {
+                counterNumbers[3].innerHTML = counterValue4++;
+                countersIntervalFlag1 = true;
+            }
+            if (!countersIntervalFlag1) {
+                clearInterval(intervalID1);
+            }
+        }, 5)
+        let flag2 = false;
+        setInterval(() => {
+            if (counterValue1 <= 450 && counterValue1 >= 430) {
+                counterNumbers[0].innerHTML = counterValue1++;
+                flag2 = true;
+            }
+            if (counterValue2 <= 25) {
+                counterNumbers[1].innerHTML = counterValue2++;
+                flag2 = true;
+            }
+            if (counterValue3 <= 550 && counterValue3 >= 530) {
+                counterNumbers[2].innerHTML = counterValue3++;
+                flag2 = true;
+            }
+            if (counterValue4 <= 48 && counterValue4 >= 15) {
+                counterNumbers[3].innerHTML = counterValue4++;
+                flag2 = true;
+            }
+        }, 100)
+    }
+})

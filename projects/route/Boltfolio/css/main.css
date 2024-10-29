@@ -327,11 +327,45 @@ margin: 10px auto;
     transition: 1s;
 }
 
-    
+.progress-bar
+{
+    transition: 1.5s;
+}
+
+.progress-bar-empty
+{
+    width: 0% !important;
+}
+
+#about-section .container
+{
+    overflow: hidden;
+}
+
+#about-section p
+{
+    position: relative;
+    top: 0;
+    transition: 1.2s ease-out;
+}
+
+#about-section p.hidden
+{
+    top: 100%;
+    opacity: 0;
+}
+
+
+
 @media screen and (min-width: 996px) {
     .dropdown-menu .dropdown-menu{
         left: initial;
         right: 100%;
     }
-    
+}
+
+@media screen and (min-width: 420px) {
+    h1.stylized-text br {
+        display: none;
+       }
 }
