@@ -24,9 +24,10 @@
 </head>
 
 <body class="overflow-x-hidden">
-    <nav class="navbar navbar-expand-lg position-fixed z-3 w-100 bg-purple navbar-dark px-lg-8 px-md-4 px-2 navbar-transparent">
+    <nav
+        class="navbar navbar-expand-lg position-fixed z-3 w-100 bg-purple navbar-dark px-lg-8 px-md-4 px-2 navbar-transparent">
         <div class="container">
-            <a class="navbar-brand fs-3 page-title-text p-0" href="../../../index.html">&#60;<span
+            <a class="navbar-brand fs-3 logo-text p-0" href="../../../index.html">&#60;<span
                     class="fs-1">B</span><span class="dancing-text">oltFolio</span>/&#62; </a>
             <button class="navbar-toggler border-5 mt-2" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -39,18 +40,21 @@
                         <a class="nav-link active" aria-current="page" href="#hero-section">HOME</a>
                     </li>
                     <li class="nav-item underline-on-hover position-relative px-2">
-                        <a class="nav-link active" aria-current="page" href="#about-section">ABOUT</a>
+                        <a class="nav-link" aria-current="page" href="#about-section">ABOUT</a>
                     </li>
                     <li class="nav-item underline-on-hover position-relative px-2">
-                        <a class="nav-link active" aria-current="page" href="#services-section">SERVICES</a>
+                        <a class="nav-link" aria-current="page" href="#services-section">SERVICES</a>
                     </li>
                     <li class="nav-item underline-on-hover position-relative px-2">
-                        <a class="nav-link active" aria-current="page" href="#testimonials-section">WORK</a>
+                        <a class="nav-link" aria-current="page" href="#counters-section">WORK</a>
                     </li>
                     <li class="nav-item underline-on-hover position-relative px-2">
-                        <a class="nav-link active" aria-current="page" href="#blog-section">BLOG</a>
+                        <a class="nav-link" aria-current="page" href="#blog-section">BLOG</a>
                     </li>
-                    <li class="nav-item underline-on-hover position-relative px-2 dropdown">
+                    <li class="nav-item underline-on-hover position-relative px-2">
+                        <a class="nav-link" aria-current="page" href="#contact-section">CONTACT</a>
+                    </li>
+                    <li class="nav-item position-relative px-2 dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Dropdown
@@ -62,10 +66,17 @@
                                 <hr class="dropdown-divider">
                             </li>
                             <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li class="dropdown-item btn-group dropstart">
+                                <button type="button" class="btn border-0 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                  Deep Dropdown
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                              </li>
                         </ul>
-                    </li>
-                    <li class="nav-item underline-on-hover position-relative px-2">
-                        <a class="nav-link active" aria-current="page" href="#contact-section">CONTACT</a>
                     </li>
                 </ul>
             </div>
@@ -76,7 +87,7 @@
         <div class="overlay position-absolute bg-black w-100 h-100 opacity-50 z-1"></div>
         <div class="container z-2">
             <h1 class="stylized-text display-1 text-center text-white">I Am Bolt Action</h1>
-            <h3 class="display-3 text-center text-white">a Web Developer</h3>
+            <h2 class="display-3 text-center text-white">a Web Developer</h2>
         </div>
     </section>
     <section class="d-flex flex-column justify-content-center align-items-center bg-body-tertiary py-3"
@@ -244,195 +255,205 @@
             </div>
         </div>
     </section>
-    <section id="counters-section" class="bg-fixed">
-        <div class="section-overlay"></div>
-        <div class="container text-white py-5 position-relative">
-            <div class="row gy-4">
-                <div class="col-lg-3 col-md-6">
-                    <div class="card-body text-center">
-                        <div
-                            class="icon-wrapper d-flex justify-content-center align-items-center border-light rounded-circle mx-auto mb-3">
-                            <i class="bi bi-check"></i>
-                        </div>
-                        <h5 class="card-title h2">450</h5>
-                        <p class="card-text">WORKS COMPLETED</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="card-body text-center">
-                        <div
-                            class="icon-wrapper d-flex justify-content-center align-items-center border-light rounded-circle mx-auto mb-3">
-                            <i class="bi bi-journal-richtext"></i>
-                        </div>
-                        <h5 class="card-title h2">25</h5>
-                        <p class="card-text">YEARS OF EXPERIENCE</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="card-body text-center">
-                        <div
-                            class="icon-wrapper d-flex justify-content-center align-items-center border-light rounded-circle mx-auto mb-3">
-                            <i class="bi bi-people"></i>
-                        </div>
-                        <h5 class="card-title h2">550</h5>
-                        <p class="card-text">TOTAL CLIENTS</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="card-body text-center">
-                        <div
-                            class="icon-wrapper d-flex justify-content-center align-items-center border-light rounded-circle mx-auto mb-3">
-                            <i class="bi bi-award"></i>
-                        </div>
-                        <h5 class="card-title h2">48</h5>
-                        <p class="card-text">AWARDS WON</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="portfolio-section" class="py-5 bg-body-tertiary">
-        <div class="section-title container text-center py-5">
-            <h3 class="display-4 text-center fw-bold">PORTFOLIO</h3>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-        </div>
-        <div class="container pt-3">
-            <div class="row gy-4">
-                <div class="col-lg-4 col-md-6">
-                    <div class="card border-0 shadow-sm mb-3">
-                        <div class="img-wrapper clickable">
-                            <img src="imgs/work-1.jpg" class="card-img-top" alt="...">
-                        </div>
-                        <div class="card-body d-flex justify-content-between align-items-center pt-4">
-                            <div class="card-text-wrapper">
-                                <h5 class="card-title">Lorem impsum dolor</h5>
-                                <p class="card-text"><small class="text-body-secondary"><span class="text-highlight">Web
-                                            Design </span>/ 25 Oct. 2024</small></p>
+    <section id="work-section">
+        <div id="counters-section" class="bg-fixed">
+            <div class="section-overlay"></div>
+            <div class="container text-white py-5 position-relative">
+                <div class="row gy-4">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card-body text-center">
+                            <div
+                                class="icon-wrapper d-flex justify-content-center align-items-center border-light rounded-circle mx-auto mb-3">
+                                <i class="bi bi-check"></i>
                             </div>
-                            <div class="icon-wrapper text-purple">
-                                <i class="bi bi-plus-circle clickable"></i>
-                            </div>
+                            <h5 class="card-title h2">450</h5>
+                            <p class="card-text">WORKS COMPLETED</p>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card border-0 shadow-sm mb-3">
-                        <div class="img-wrapper clickable">
-                            <img src="imgs/work-2.jpg" class="card-img-top" alt="...">
-                        </div>
-                        <div class="card-body d-flex justify-content-between align-items-center pt-4">
-                            <div class="card-text-wrapper">
-                                <h5 class="card-title">Loreda Cuno Nere</h5>
-                                <p class="card-text"><small class="text-body-secondary"><span class="text-highlight">Web
-                                            Design </span>/ 25 Oct. 2024</small></p>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card-body text-center">
+                            <div
+                                class="icon-wrapper d-flex justify-content-center align-items-center border-light rounded-circle mx-auto mb-3">
+                                <i class="bi bi-journal-richtext"></i>
                             </div>
-                            <div class="icon-wrapper text-purple">
-                                <i class="bi bi-plus-circle clickable"></i>
-                            </div>
+                            <h5 class="card-title h2">25</h5>
+                            <p class="card-text">YEARS OF EXPERIENCE</p>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card border-0 shadow-sm mb-3">
-                        <div class="img-wrapper clickable">
-                            <img src="imgs/work-3.jpg" class="card-img-top" alt="...">
-                        </div>
-                        <div class="card-body d-flex justify-content-between align-items-center pt-4">
-                            <div class="card-text-wrapper">
-                                <h5 class="card-title">Mavrito Lana Dere</h5>
-                                <p class="card-text"><small class="text-body-secondary"><span class="text-highlight">Web
-                                            Design </span>/ 25 Oct. 2024</small></p>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card-body text-center">
+                            <div
+                                class="icon-wrapper d-flex justify-content-center align-items-center border-light rounded-circle mx-auto mb-3">
+                                <i class="bi bi-people"></i>
                             </div>
-                            <div class="icon-wrapper text-purple">
-                                <i class="bi bi-plus-circle clickable"></i>
-                            </div>
+                            <h5 class="card-title h2">550</h5>
+                            <p class="card-text">TOTAL CLIENTS</p>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card border-0 shadow-sm mb-3">
-                        <div class="img-wrapper clickable">
-                            <img src="imgs/work-4.jpg" class="card-img-top" alt="...">
-                        </div>
-                        <div class="card-body d-flex justify-content-between align-items-center pt-4">
-                            <div class="card-text-wrapper">
-                                <h5 class="card-title">Bindo Laro Cado</h5>
-                                <p class="card-text"><small class="text-body-secondary"><span class="text-highlight">Web
-                                            Design </span>/ 25 Oct. 2024</small></p>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card-body text-center">
+                            <div
+                                class="icon-wrapper d-flex justify-content-center align-items-center border-light rounded-circle mx-auto mb-3">
+                                <i class="bi bi-award"></i>
                             </div>
-                            <div class="icon-wrapper text-purple">
-                                <i class="bi bi-plus-circle clickable"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card border-0 shadow-sm mb-3">
-                        <div class="img-wrapper clickable">
-                            <img src="imgs/work-5.jpg" class="card-img-top" alt="...">
-                        </div>
-                        <div class="card-body d-flex justify-content-between align-items-center pt-4">
-                            <div class="card-text-wrapper">
-                                <h5 class="card-title">Studio Lena Mado</h5>
-                                <p class="card-text"><small class="text-body-secondary"><span class="text-highlight">Web
-                                            Design </span>/ 25 Oct. 2024</small></p>
-                            </div>
-                            <div class="icon-wrapper text-purple">
-                                <i class="bi bi-plus-circle clickable"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card border-0 shadow-sm mb-3">
-                        <div class="img-wrapper clickable">
-                            <img src="imgs/work-6.jpg" class="card-img-top" alt="...">
-                        </div>
-                        <div class="card-body d-flex justify-content-between align-items-center pt-4">
-                            <div class="card-text-wrapper">
-                                <h5 class="card-title">Studio Big Bang</h5>
-                                <p class="card-text"><small class="text-body-secondary"><span class="text-highlight">Web
-                                            Design </span>/ 25 Oct. 2024</small></p>
-                            </div>
-                            <div class="icon-wrapper text-purple">
-                                <i class="bi bi-plus-circle clickable"></i>
-                            </div>
+                            <h5 class="card-title h2">48</h5>
+                            <p class="card-text">AWARDS WON</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <section id="testimonials-section" class="bg-fixed p-5">
-        <div class="section-overlay"></div>
-        <div class="container-fluid text-white text-center p-lg-5">
-            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="0"
-                        class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item p-0 p-m-5 p-lg-5 mb-5 mb-m-2 mb-lg-2 active">
-                        <div class="img-wrapper pb-3">
-                            <img src="imgs/testimonial-2.jpg" class="rounded-circle" alt="...">
+        <div id="portfolio-section" class="py-5 bg-body-tertiary">
+            <div class="section-title container text-center py-5">
+                <h3 class="display-4 text-center fw-bold">PORTFOLIO</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+            <div class="container pt-3">
+                <div class="row gy-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card border-0 shadow-sm mb-3">
+                            <div class="img-wrapper clickable">
+                                <img src="imgs/work-1.jpg" class="card-img-top" alt="...">
+                            </div>
+                            <div class="card-body d-flex justify-content-between align-items-center pt-4">
+                                <div class="card-text-wrapper">
+                                    <h5 class="card-title">Lorem impsum dolor</h5>
+                                    <p class="card-text"><small class="text-body-secondary"><span
+                                                class="text-highlight">Web
+                                                Design </span>/ 25 Oct. 2024</small></p>
+                                </div>
+                                <div class="icon-wrapper text-purple">
+                                    <i class="bi bi-plus-circle clickable"></i>
+                                </div>
+                            </div>
                         </div>
-                        <h2 class="mb-4">Gabriel Jesus</h2>
-                        <p class="lead px-0 m-0 px-lg-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero,
-                            nihil. Rem
-                            nulla expedita
-                            placeat aliquam voluptatibus accusamus rerum. Vel, facere.</p>
                     </div>
-                    <div class="carousel-item p-0 p-m-5 p-lg-5 mb-5 mb-m-2 mb-lg-2">
-                        <div class="img-wrapper pb-3">
-                            <img src="imgs/testimonial-4.jpeg" class="rounded-circle" alt="...">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card border-0 shadow-sm mb-3">
+                            <div class="img-wrapper clickable">
+                                <img src="imgs/work-2.jpg" class="card-img-top" alt="...">
+                            </div>
+                            <div class="card-body d-flex justify-content-between align-items-center pt-4">
+                                <div class="card-text-wrapper">
+                                    <h5 class="card-title">Loreda Cuno Nere</h5>
+                                    <p class="card-text"><small class="text-body-secondary"><span
+                                                class="text-highlight">Web
+                                                Design </span>/ 25 Oct. 2024</small></p>
+                                </div>
+                                <div class="icon-wrapper text-purple">
+                                    <i class="bi bi-plus-circle clickable"></i>
+                                </div>
+                            </div>
                         </div>
-                        <h2 class="mb-4">Vinicius Junior</h2>
-                        <p class="lead px-0 m-0 px-lg-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero,
-                            nihil. Rem
-                            nulla expedita
-                            placeat aliquam voluptatibus accusamus rerum. Vel, facere.</p>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card border-0 shadow-sm mb-3">
+                            <div class="img-wrapper clickable">
+                                <img src="imgs/work-3.jpg" class="card-img-top" alt="...">
+                            </div>
+                            <div class="card-body d-flex justify-content-between align-items-center pt-4">
+                                <div class="card-text-wrapper">
+                                    <h5 class="card-title">Mavrito Lana Dere</h5>
+                                    <p class="card-text"><small class="text-body-secondary"><span
+                                                class="text-highlight">Web
+                                                Design </span>/ 25 Oct. 2024</small></p>
+                                </div>
+                                <div class="icon-wrapper text-purple">
+                                    <i class="bi bi-plus-circle clickable"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card border-0 shadow-sm mb-3">
+                            <div class="img-wrapper clickable">
+                                <img src="imgs/work-4.jpg" class="card-img-top" alt="...">
+                            </div>
+                            <div class="card-body d-flex justify-content-between align-items-center pt-4">
+                                <div class="card-text-wrapper">
+                                    <h5 class="card-title">Bindo Laro Cado</h5>
+                                    <p class="card-text"><small class="text-body-secondary"><span
+                                                class="text-highlight">Web
+                                                Design </span>/ 25 Oct. 2024</small></p>
+                                </div>
+                                <div class="icon-wrapper text-purple">
+                                    <i class="bi bi-plus-circle clickable"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card border-0 shadow-sm mb-3">
+                            <div class="img-wrapper clickable">
+                                <img src="imgs/work-5.jpg" class="card-img-top" alt="...">
+                            </div>
+                            <div class="card-body d-flex justify-content-between align-items-center pt-4">
+                                <div class="card-text-wrapper">
+                                    <h5 class="card-title">Studio Lena Mado</h5>
+                                    <p class="card-text"><small class="text-body-secondary"><span
+                                                class="text-highlight">Web
+                                                Design </span>/ 25 Oct. 2024</small></p>
+                                </div>
+                                <div class="icon-wrapper text-purple">
+                                    <i class="bi bi-plus-circle clickable"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card border-0 shadow-sm mb-3">
+                            <div class="img-wrapper clickable">
+                                <img src="imgs/work-6.jpg" class="card-img-top" alt="...">
+                            </div>
+                            <div class="card-body d-flex justify-content-between align-items-center pt-4">
+                                <div class="card-text-wrapper">
+                                    <h5 class="card-title">Studio Big Bang</h5>
+                                    <p class="card-text"><small class="text-body-secondary"><span
+                                                class="text-highlight">Web
+                                                Design </span>/ 25 Oct. 2024</small></p>
+                                </div>
+                                <div class="icon-wrapper text-purple">
+                                    <i class="bi bi-plus-circle clickable"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="testimonials-section" class="bg-fixed p-5">
+            <div class="section-overlay"></div>
+            <div class="container-fluid text-white text-center p-lg-5">
+                <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="0"
+                            class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item p-0 p-m-5 p-lg-5 mb-5 mb-m-2 mb-lg-2 active">
+                            <div class="img-wrapper pb-3">
+                                <img src="imgs/testimonial-2.jpg" class="rounded-circle" alt="...">
+                            </div>
+                            <h2 class="mb-4">Gabriel Jesus</h2>
+                            <p class="lead px-0 m-0 px-lg-5">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Vero,
+                                nihil. Rem
+                                nulla expedita
+                                placeat aliquam voluptatibus accusamus rerum. Vel, facere.</p>
+                        </div>
+                        <div class="carousel-item p-0 p-m-5 p-lg-5 mb-5 mb-m-2 mb-lg-2">
+                            <div class="img-wrapper pb-3">
+                                <img src="imgs/testimonial-4.jpeg" class="rounded-circle" alt="...">
+                            </div>
+                            <h2 class="mb-4">Vinicius Junior</h2>
+                            <p class="lead px-0 m-0 px-lg-5">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Vero,
+                                nihil. Rem
+                                nulla expedita
+                                placeat aliquam voluptatibus accusamus rerum. Vel, facere.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -480,7 +501,7 @@
                                     class="badge bg-purple px-3 py-2">HEALTH & DIET</span></div>
                         </div>
                         <div class="card-body text-start">
-                            <h5 class="card-title mt-2 clickable">See more ideas about Diet</h5>
+                            <h5 class="card-title mt-2 clickable">See more ideas about Fitness</h5>
                             <p class="card-text">Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus.
                                 Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.</p>
                         </div>
@@ -578,10 +599,13 @@
             </div>
         </div>
     </section>
-    <footer>
+    <footer class="bg-purple text-white text-center py-2">
         <div class="container">
-
+            <div class="logo-text display-4 py-3">&#60;<span
+                class="display-1">B</span><span class="dancing-text dancing-footer display-5">oltFolio</span>/&#62; </div>
         </div>
+        <p class="mb-1">This dummy portfolio was made for educational purposes only and serves no real function.</p>
+        <p>This project was made as an assignment for ROUTE</p>
     </footer>
 
     <script src="js/bootstrap.bundle.min.js"></script>
