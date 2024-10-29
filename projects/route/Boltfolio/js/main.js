@@ -66,6 +66,8 @@ setInterval(() => {
 }, 10000)
 
 
+
+// Change navbar style on scroll
 let prevScrollpos = window.scrollY;
 
 window.onscroll = function () {
@@ -85,9 +87,6 @@ window.onscroll = function () {
 
 
 // Change active navbar link on scroll
-
-// console.log(sectionTops);
-
 
 let sections = document.querySelectorAll("section");
 window.addEventListener("scroll", () => {
