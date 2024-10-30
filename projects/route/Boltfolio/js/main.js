@@ -86,7 +86,7 @@ window.onscroll = function () {
 }
 
 
-// Change active navbar link on scroll
+// Change active navbar link on scroll (I didn't know Bootstrap scrollspy existed yet)
 
 let sections = document.querySelectorAll("section");
 let activeSection;
@@ -108,11 +108,25 @@ window.addEventListener("scroll", () => {
     navLinks[activeSection].classList.add("active");
 })
 
+//Scroll to top
+let scrollToTop = document.getElementById("scroll-to-top");
+scrollToTop.addEventListener("click", () => {
+    window.scrollTo(0, 0);
+})
+
+window.addEventListener("scroll", () => {
+   if (activeSection === 0) {
+       scrollToTop.classList.add("hidden");
+   }
+   else {
+       scrollToTop.classList.remove("hidden");
+   }
+})
 
 
 
 //Scroll Animations
-//Animate progress bars
+    //Animate progress bars
 
 let progressBars = document.querySelectorAll(".progress-bar");
 
@@ -126,7 +140,7 @@ function animateProgressBar() {
 
 window.addEventListener("scroll", animateProgressBar);
 
-//Animated about paragraphs
+    //Animated about paragraphs
 let aboutParagraphs = document.querySelectorAll("#about-section p");
 
 function animateAboutParagraphs() {
@@ -139,7 +153,7 @@ function animateAboutParagraphs() {
 
 window.addEventListener("scroll", animateAboutParagraphs);
 
-//Animated counters
+    //Animated counters
 
 let counterNumbers = document.querySelectorAll("#counters-section .counter-number");
 
