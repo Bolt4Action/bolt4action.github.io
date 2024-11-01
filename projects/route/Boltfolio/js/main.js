@@ -13,6 +13,8 @@ navBarBrand.addEventListener("mouseover", () => {
             dancingText.innerHTML = "ack to Bolt's Site";
             dancingText.classList.remove("dancing-text-disabled");
         }, 1000)
+        // if (dancingText.matches(':hover'))
+        
         setTimeout(() => {
             dancingText.classList.add("dancing-text-disabled");
             setTimeout(() => {
@@ -27,6 +29,8 @@ navBarBrand.addEventListener("mouseover", () => {
         }, 5000)
     }
 })
+
+
 
 
 //Animate footer text
@@ -209,3 +213,5 @@ window.addEventListener("scroll", () => {
         }, 100)
     }
 })
+
+let portfolioIMG = document.querySelectorAll("#work-section img"); 
