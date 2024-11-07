@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD.js</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kdam+Thmor+Pro&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Sriracha&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/CRUD.css">
+</head>
+
+<body>
+    <section id="landing-section" class="container-fluid d-flex align-items-center px-5">
+        <div id="landing-overlay" class="overlay"></div>
+        <div class="text-container col text-white ms-lg-5 pt-lg-5 z-1">
+            <h1 id="title-text" class="display-1 fw-bold pt-5 ff-primary">CRUD<span
+                    class="ff-secondary text-primary">.js</span></h1>
+            <p class="display-6 mb-5 ff-secondary">World's Prettiest CRUD Application</p>
+            <button class="landing-button py-3 display-6 fw-semibold mt-4 mb-5">Let's Get Started &rarr;</button>
+        </div>
+    </section>
+    <main>
+        <nav class="bg-dark text-white">
+            <div class="container-fluid justify-content-center">
+                <a class="navbar-brand" href="#">
+                    <h1 class="display-5 fw-bold ff-primary">CRUD<span class="ff-secondary text-primary">.js</span></h1>
+                </a>
+            </div>
+        </nav>
+        <section id="admin-section" class="py-5">
+            <div class="admin-dashboard container bg-body-tertiary rounded-4 shadow-sm">
+                <div class="admin-title container bg-dark p-2 rounded-4">
+                    <h3 class="text-white text-center">Admin <span class="text-primary">Dashboard</span></h3>
+                </div>
+                <form class="px-5 pb-2 pt-5 border-2">
+                    <div class="mb-4">
+                        <input type="email" class="form-control" id="productName" placeholder="Product Name">
+                    </div>
+                    <div class="mb-4">
+                        <input type="text" class="form-control" id="productPrice" placeholder="Product Price">
+                    </div>
+                    <div class="mb-4">
+                        <input type="text" class="form-control" id="productCategory" placeholder="Product Category">
+                    </div>
+                    <div class="mb-4">
+                        <input type="text" class="form-control" id="productDescription"
+                            placeholder="Product Description">
+                    </div>
+                    <div class="mb-4 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Product Image</label>
+                        <input class="form-control" type="file" id="formFile">
+                    </div>
+                </form>
+            </div>
+            <button type="submit"
+                class="btn btn-warning btn-lg text-center mx-auto d-block rounded-0 rounded-bottom-4 fw-bold shadow-sm">Add
+                Product</button>
+        </section>
+        <section id="products-section" class="bg-body-tertiary">
+            <nav class="navbar bg-body-tertiary">
+                <div class="container-fluid">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </nav>
+        </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
+        integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/CRUD.js"></script>
+</body>
+
+</html>

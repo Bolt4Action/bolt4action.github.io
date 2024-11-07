@@ -1,0 +1,84 @@
+:root
+{
+    --primary-color: #EFD81D;
+    --dark-background-color: #0B1234;
+}
+
+
+html, body
+{
+    min-height: 100vh;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+/* Utilities */
+.ff-primary
+{
+    font-family: "Kdam Thmor Pro", inter, sans-serif;
+}
+
+.ff-secondary
+{
+    font-family: inter, sans-serif;
+}
+
+.text-primary
+{
+    color: var(--primary-color) !important;
+}
+
+.bg-dark
+{
+    background-color: var(--dark-background-color) !important;
+}
+
+
+/* Main */
+section
+{
+    height: 100vh;
+}
+
+#landing-section
+{
+    background-image: url(../imgs/landing/landing.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#landing-overlay
+{
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    min-height: 100vh;
+    z-index: 0;
+    background-image: radial-gradient(circle farthest-side at right top, hsla(60, 100%, 50%, 0.306) 0%, hsla(240, 15%, 6%, 0.786) 65%);;
+}
+ 
+.landing-button
+{
+    background-color: transparent;
+    color: var(--primary-color);
+    border: none;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    transition: 0.5s;
+    width: max-content;
+}
+
+.landing-button:hover
+{
+    color: white;
+    border-top: 2px solid var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    background-color: #ffe10032;
+}
+
+.admin-title
+{
+    border-bottom: 4px solid var(--primary-color);
+    border-right: 4px solid var(--primary-color);
+    border-left: 4px solid var(--primary-color);
+}
