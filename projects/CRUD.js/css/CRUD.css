@@ -37,7 +37,7 @@ html, body
 /* Main */
 section
 {
-    height: 100vh;
+    min-height: 100vh;
 }
 
 #landing-section
@@ -65,7 +65,19 @@ section
     border-top: 2px solid white;
     border-bottom: 2px solid white;
     transition: 0.5s;
-    width: max-content;
+    width: 22.5rem;
+    transition: 1s;
+}
+
+.landing-button span
+{
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+
+.landing-button span.hidden
+{
+    opacity: 0;
 }
 
 .landing-button:hover
@@ -81,4 +93,47 @@ section
     border-bottom: 4px solid var(--primary-color);
     border-right: 4px solid var(--primary-color);
     border-left: 4px solid var(--primary-color);
+}
+
+#products-navbar
+{
+    color: white;
+    background-color: var(--dark-background-color);
+}
+
+.list-card img
+{
+    height: 2rem;
+}
+
+.category-wrapper
+{
+    background-color: rgb(255, 255, 255);
+    padding: 5px 8px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border: 1px solid black;
+    box-shadow: 2px 2px 0px 0px rgb(0, 0, 0);
+    position: relative;
+    /* overflow: hidden; */
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+
+.category-wrapper:hover
+{
+    background-color: var(--primary-color);    
+}
+
+.img-fixed-height
+{
+    height: 20rem;
+    object-fit: contain ;
+}
+
+.form-control:focus
+{
+box-shadow: 0px 0px 2px 3px var(--primary-color);
 }

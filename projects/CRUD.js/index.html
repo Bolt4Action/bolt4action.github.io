@@ -21,7 +21,8 @@
             <h1 id="title-text" class="display-1 fw-bold pt-5 ff-primary">CRUD<span
                     class="ff-secondary text-primary">.js</span></h1>
             <p class="display-6 mb-5 ff-secondary">World's Prettiest CRUD Application</p>
-            <button class="landing-button py-3 display-6 fw-semibold mt-4 mb-5">Let's Get Started &rarr;</button>
+            <button class="landing-button py-3 display-6 fw-semibold mt-4 mb-5"><span>Let's Get Started
+                    &rarr;</span></button>
         </div>
     </section>
     <main>
@@ -37,9 +38,9 @@
                 <div class="admin-title container bg-dark p-2 rounded-4">
                     <h3 class="text-white text-center">Admin <span class="text-primary">Dashboard</span></h3>
                 </div>
-                <form class="px-5 pb-2 pt-5 border-2">
+                <form class="px-lg-5 px-2 pb-2 pt-5 border-2">
                     <div class="mb-4">
-                        <input type="email" class="form-control" id="productName" placeholder="Product Name">
+                        <input type="text" class="form-control" id="productName" placeholder="Product Name">
                     </div>
                     <div class="mb-4">
                         <input type="text" class="form-control" id="productPrice" placeholder="Product Price">
@@ -51,29 +52,49 @@
                         <input type="text" class="form-control" id="productDescription"
                             placeholder="Product Description">
                     </div>
-                    <div class="mb-4 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                    </div>
                     <div class="mb-3">
-                        <label for="formFile" class="form-label">Product Image</label>
-                        <input class="form-control" type="file" id="formFile">
+                        <label for="formFile" class="form-label">Product Image <span class="fst-italic">(Optional)</span></label>
+                        <input class="form-control" type="file" id="productImage">
                     </div>
+                    <button type="submit"
+                        class="btn btn-warning btn-lg text-center mx-auto d-block rounded-0 rounded-bottom-4 fw-bold shadow-sm">Add
+                        Product</button>
+                    <button type="button"
+                        class="btn btn-info btn-lg text-center mx-auto d-block rounded-0 rounded-bottom-4 fw-bold shadow-sm d-none">Edit
+                        Product</button>
                 </form>
             </div>
-            <button type="submit"
-                class="btn btn-warning btn-lg text-center mx-auto d-block rounded-0 rounded-bottom-4 fw-bold shadow-sm">Add
-                Product</button>
         </section>
         <section id="products-section" class="bg-body-tertiary">
-            <nav class="navbar bg-body-tertiary">
-                <div class="container-fluid">
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+            <header id="products-navbar" class="navbar row container-fluid mb-5">
+                <div class="filter-container col-4">
                 </div>
-            </nav>
+                <h2 class="col-4 display-4 fw-bolder text-center ">Products <span class="text-primary">List</span></h2>
+                <div class="search-box col-4 px-5 d-flex justify-content-between">
+                    <input id="product-search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-warning" type="submit">Search</button>
+                </div>
+            </header>
+            <div class="container">
+                <div class="row">
+                    <!-- <div class="col-lg-4">
+                        <div class="filters-container bg-warning w-100 h-100 rounded-3 p-3">
+                            <h4 class="fw-bold fs-4 mb-3">Filters</h4>
+                            <div class="category-filters d-flex ">
+                                <div class="category-wrapper">
+                                    <p class="m-0">Electronics</p>
+                                    <div class="bg-warning h-100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="col-12">
+                        <div class="products-container row gy-3">
+                            <p class="display-5 text-center">No Products to show.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
