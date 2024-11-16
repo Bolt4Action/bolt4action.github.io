@@ -148,3 +148,9 @@ box-shadow: 0px 0px 2px 3px var(--primary-color);
 {
     background-color: var(--primary-color);
 }
+
+.toast-body
+{
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}

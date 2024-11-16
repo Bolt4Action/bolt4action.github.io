@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/CRUD.css">
 </head>
@@ -63,9 +64,15 @@
                     <button type="submit"
                         class="btn btn-outline-warning btn-lg text-center mx-auto d-block rounded-0 rounded-bottom-4 fw-bold shadow-sm">Add
                         Product</button>
-                    <button type="button"
-                        class="btn btn-outline-info btn-lg text-center mx-auto d-block rounded-0 rounded-bottom-4 fw-bold shadow-sm d-none">Edit
-                        Product</button>
+                    <div class="edit-container d-flex flex-column align-items-center">
+                        <button type="button" id="cancelEditBtn"
+                            class="btn btn-outline-danger text-center rounded-circle fw-bold shadow-sm d-none mb-2"><i
+                                class="fa fa-close"></i></button>
+                        <button type="button" id="submitEditBtn"
+                            class="btn btn-outline-info btn-lg text-center rounded-0 rounded-bottom-4 fw-bold shadow-sm d-none">Edit
+                            Product</button>
+                    </div>
+
                 </form>
             </div>
         </section>
@@ -100,6 +107,19 @@
             </div>
         </section>
     </main>
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="undoDeleteToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header text-danger">
+                <i class="fa fa-trash mx-2"></i>
+                <strong class="me-auto">Item Deleted</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body text-center bg-white">
+                <button id="undoDeleteBtn" class="btn border-0 text-decoration-underline text-warning">Click here to
+                    undo.</button>
+            </div>
+        </div>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
         integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>

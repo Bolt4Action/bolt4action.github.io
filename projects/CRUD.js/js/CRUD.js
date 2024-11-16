@@ -20,9 +20,13 @@ const productCategoryInput = document.getElementById("productCategory");
 const productDescriptionInput = document.getElementById("productDescription");
 const productImageInput = document.getElementById("productImage");
 const addProductBtn = document.querySelector(".admin-dashboard button[type='submit']");
-const editProductBtn = document.querySelector(".admin-dashboard button[type='button']");
+const submitEditBtn = document.getElementById("submitEditBtn");
+const cancelEditBtn = document.getElementById("cancelEditBtn");
+console.log(cancelEditBtn);
+
 let productsList = [];
 let displayList = [];
+let deletedProductsList = [];
 
 
 let updateProductsLocalStorage = () => {
@@ -40,12 +44,12 @@ addProductBtn.addEventListener("click", (e) => {
     }
     productsList.push(product);
     updateProductsLocalStorage();
-    resetInputs();
+    clearInputs();
     displayProducts();
 })
 
 let editIndex;
-editProductBtn.addEventListener("click", (e) => {
+submitEditBtn.addEventListener("click", (e) => {
     e.preventDefault();
     let product = {
         name: productNameInput.value,
@@ -55,17 +59,26 @@ editProductBtn.addEventListener("click", (e) => {
         image: productImageInput.files.length > 0 ? productImageInput.files[0].name : "default.png",
     }
     productsList[editIndex] = product;
-    resetInputs();
+    clearInputs();
     updateProductsLocalStorage();
     displayProducts();
     addProductBtn.classList.remove("d-none");
-    editProductBtn.classList.add("d-none");
+    submitEditBtn.classList.add("d-none");
+    cancelEditBtn.classList.add("d-none");
     productsSection.scrollIntoView();
 
 })
 
+cancelEditBtn.addEventListener("click", () => {
+    addProductBtn.classList.remove("d-none");
+    submitEditBtn.classList.add("d-none");
+    cancelEditBtn.classList.add("d-none");
+    productsSection.scrollIntoView();
+    clearInputs();
+})
 
-let resetInputs = () => {
+
+let clearInputs = () => {
     productNameInput.value = "";
     productPriceInput.value = "";
     productCategoryInput.value = "";
@@ -136,14 +149,8 @@ function createProductCard(product, index, nameHighlight = "") {
 
     cardTitle.textContent = product.name;
     if (nameHighlight) {
-        // let cardTitleTemp = document.createElement("h4");
-        // cardTitleTemp.innerHTML = cardTitle.innerHTML;
         cardTitle.innerHTML = cardTitle.innerHTML.toLowerCase().replaceAll(nameHighlight, `<span class="highlight">${nameHighlight}</span>`)
         cardTitle.classList.add("text-capitalize");
-
-
-        // cardTitleTemp.innerText = cardTitle.innerText;
-        // cardTitle.innerHTML = cardTitleTemp.textContent;
     }
 
     let cardPrice = document.createElement("h5");
@@ -174,8 +181,10 @@ function createProductCard(product, index, nameHighlight = "") {
         productPriceInput.value = product.price;
         productCategoryInput.value = product.category;
         productDescriptionInput.value = product.description;
+        // productImageInput.value = product.image;    //! Not Working
         addProductBtn.classList.add("d-none");
-        editProductBtn.classList.remove("d-none");
+        submitEditBtn.classList.remove("d-none");
+        cancelEditBtn.classList.remove("d-none");
         editIndex = index;
     })
 
@@ -183,9 +192,7 @@ function createProductCard(product, index, nameHighlight = "") {
     deleteButton.classList.add("btn", "btn-outline-danger", "col-5");
     deleteButton.innerHTML = "<i class='fa fa-trash me-1'></i>Delete";
     deleteButton.addEventListener("click", () => {
-        productsList.splice(index, 1);
-        updateProductsLocalStorage();
-        displayProducts();
+        deleteProduct(index);
     })
 
     buttonRow.appendChild(editButton);
@@ -197,9 +204,33 @@ function createProductCard(product, index, nameHighlight = "") {
 
     productCard.appendChild(cardBody);
 
+   
+
     return productGrid;
 }
+const undoDeleteBtn = document.getElementById("undoDeleteBtn");
+undoDeleteBtn.addEventListener("click", () => {
+    undoDeleteProduct();
+    undoDeleteToast.classList.remove("show");
+})
 
+const undoDeleteToast = document.getElementById('undoDeleteToast')
+const toastBootstrap = bootstrap.Toast.getOrCreateInstance(undoDeleteToast);
+function deleteProduct(index) {
+    let deletedProduct = productsList.splice(index, 1)[0];
+    toastBootstrap.show()
+    updateProductsLocalStorage();
+    displayProducts();
+    deletedProduct.index = index;
+    deletedProductsList.unshift(deletedProduct);
+}
+
+function undoDeleteProduct() {
+    let deletedProduct = deletedProductsList.shift();
+    productsList.splice(deletedProduct.index, 0, deletedProduct);
+    updateProductsLocalStorage();
+    displayProducts();
+}
 
 // Search
 searchInput = document.getElementById("product-search");
