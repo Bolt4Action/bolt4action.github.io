@@ -10,6 +10,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kdam+Thmor+Pro&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Sriracha&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/CRUD.css">
 </head>
@@ -43,7 +46,7 @@
                         <input type="text" class="form-control" id="productName" placeholder="Product Name">
                     </div>
                     <div class="mb-4">
-                        <input type="text" class="form-control" id="productPrice" placeholder="Product Price">
+                        <input type="number" class="form-control" id="productPrice" placeholder="Product Price">
                     </div>
                     <div class="mb-4">
                         <input type="text" class="form-control" id="productCategory" placeholder="Product Category">
@@ -53,14 +56,15 @@
                             placeholder="Product Description">
                     </div>
                     <div class="mb-3">
-                        <label for="formFile" class="form-label">Product Image <span class="fst-italic">(Optional)</span></label>
+                        <label for="formFile" class="form-label">Product Image <span
+                                class="fst-italic">(Optional)</span></label>
                         <input class="form-control" type="file" id="productImage">
                     </div>
                     <button type="submit"
-                        class="btn btn-warning btn-lg text-center mx-auto d-block rounded-0 rounded-bottom-4 fw-bold shadow-sm">Add
+                        class="btn btn-outline-warning btn-lg text-center mx-auto d-block rounded-0 rounded-bottom-4 fw-bold shadow-sm">Add
                         Product</button>
                     <button type="button"
-                        class="btn btn-info btn-lg text-center mx-auto d-block rounded-0 rounded-bottom-4 fw-bold shadow-sm d-none">Edit
+                        class="btn btn-outline-info btn-lg text-center mx-auto d-block rounded-0 rounded-bottom-4 fw-bold shadow-sm d-none">Edit
                         Product</button>
                 </form>
             </div>
@@ -71,8 +75,8 @@
                 </div>
                 <h2 class="col-4 display-4 fw-bolder text-center ">Products <span class="text-primary">List</span></h2>
                 <div class="search-box col-4 px-5 d-flex justify-content-between">
-                    <input id="product-search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-warning" type="submit">Search</button>
+                    <input id="product-search" class="form-control me-2" type="search" placeholder="Search"
+                        aria-label="Search">
                 </div>
             </header>
             <div class="container">
@@ -89,8 +93,7 @@
                         </div>
                     </div> -->
                     <div class="col-12">
-                        <div class="products-container row gy-3">
-                            <p class="display-5 text-center">No Products to show.</p>
+                        <div class="products-container row gy-3 p-lg-3">
                         </div>
                     </div>
                 </div>

@@ -14,15 +14,20 @@ landingButtonText.addEventListener("transitionend", () => {
 
 
 // CRUD Operations
-let productNameInput = document.getElementById("productName");
-let productPriceInput = document.getElementById("productPrice");
-let productCategoryInput = document.getElementById("productCategory");
-let productDescriptionInput = document.getElementById("productDescription");
-let productImageInput = document.getElementById("productImage");
-let addProductBtn = document.querySelector(".admin-dashboard button[type='submit']");
-let editProductBtn = document.querySelector(".admin-dashboard button[type='button']");
+const productNameInput = document.getElementById("productName");
+const productPriceInput = document.getElementById("productPrice");
+const productCategoryInput = document.getElementById("productCategory");
+const productDescriptionInput = document.getElementById("productDescription");
+const productImageInput = document.getElementById("productImage");
+const addProductBtn = document.querySelector(".admin-dashboard button[type='submit']");
+const editProductBtn = document.querySelector(".admin-dashboard button[type='button']");
 let productsList = [];
+let displayList = [];
 
+
+let updateProductsLocalStorage = () => {
+    localStorage.setItem("products", JSON.stringify(productsList));
+}
 
 addProductBtn.addEventListener("click", (e) => {
     e.preventDefault();
@@ -34,7 +39,8 @@ addProductBtn.addEventListener("click", (e) => {
         image: productImageInput.files.length > 0 ? productImageInput.files[0].name : "default.png",
     }
     productsList.push(product);
-    resetForms();    
+    updateProductsLocalStorage();
+    resetInputs();
     displayProducts();
 })
 
@@ -49,15 +55,17 @@ editProductBtn.addEventListener("click", (e) => {
         image: productImageInput.files.length > 0 ? productImageInput.files[0].name : "default.png",
     }
     productsList[editIndex] = product;
-    resetForms();
+    resetInputs();
+    updateProductsLocalStorage();
     displayProducts();
     addProductBtn.classList.remove("d-none");
     editProductBtn.classList.add("d-none");
-     
+    productsSection.scrollIntoView();
+
 })
 
 
-let resetForms = () => {
+let resetInputs = () => {
     productNameInput.value = "";
     productPriceInput.value = "";
     productCategoryInput.value = "";
@@ -67,21 +75,43 @@ let resetForms = () => {
 
 let productsContainer = document.querySelector(".products-container");
 
-function displayProducts() {
+
+
+function displayProducts(filterMethod = "") {
     productsContainer.textContent = "";
-    for (let i = 0; i < productsList.length; i++) {
-        productsContainer.appendChild(createProductCard(productsList[i], i));
+    switch (filterMethod) {
+        case "searchTerm":
+            filterBySearchTerm();
+            break;
+        case "":
+            displayAllProducts();
+            break;
     }
-    if (productsList.length === 0) {
-        let noProducts = document.createElement("p");
-        noProducts.classList.add("text-center");
-        noProducts.classList.add("display-5");
-        noProducts.textContent = "No Products to show.";
-        productsContainer.appendChild(noProducts);
+    productEmptyCheck();
+    displayList = [];
+}
+
+function displayAllProducts() {
+    displayList = productsList;
+    for (let i = 0; i < displayList.length; i++) {
+        productsContainer.appendChild(createProductCard(displayList[i], i));
     }
 }
 
-function createProductCard(product, index) {
+function productEmptyCheck() {
+    if (displayList.length === 0) {
+        let noProducts = document.createElement("p");
+        noProducts.classList.add("text-center");
+        noProducts.classList.add("display-5");
+        noProducts.classList.add("opacity-50");
+        noProducts.textContent = "No Products to display.";
+        productsContainer.appendChild(noProducts);
+    }
+}
+const adminSection = document.getElementById("admin-section");
+const productsSection = document.getElementById("products-section");
+
+function createProductCard(product, index, nameHighlight = "") {
     let productGrid = document.createElement("div");
     productGrid.classList.add("col-lg-3", "col-sm-6");
     let productCard = document.createElement("div");
@@ -102,11 +132,22 @@ function createProductCard(product, index) {
     row.classList.add("row");
 
     let cardTitle = document.createElement("h5");
-    cardTitle.classList.add("card-title", "col-6", "mb-0");
+    cardTitle.classList.add("card-title", "col-7", "mb-0");
+
     cardTitle.textContent = product.name;
+    if (nameHighlight) {
+        // let cardTitleTemp = document.createElement("h4");
+        // cardTitleTemp.innerHTML = cardTitle.innerHTML;
+        cardTitle.innerHTML = cardTitle.innerHTML.toLowerCase().replaceAll(nameHighlight, `<span class="highlight">${nameHighlight}</span>`)
+        cardTitle.classList.add("text-capitalize");
+
+
+        // cardTitleTemp.innerText = cardTitle.innerText;
+        // cardTitle.innerHTML = cardTitleTemp.textContent;
+    }
 
     let cardPrice = document.createElement("h5");
-    cardPrice.classList.add("card-price", "col-6", "mb-0", "text-end", "fst-italic", "fw-normal");
+    cardPrice.classList.add("card-price", "col-5", "mb-0", "text-end", "fst-italic", "fw-normal");
     cardPrice.textContent = `$${product.price}`;
 
     let cardCategory = document.createElement("h5");
@@ -126,13 +167,13 @@ function createProductCard(product, index) {
 
     let editButton = document.createElement("button");
     editButton.classList.add("btn", "btn-outline-warning", "col-5");
-    editButton.textContent = "Edit";
+    editButton.innerHTML = "<i class='fa fa-edit'></i> Edit";
     editButton.addEventListener("click", () => {
+        adminSection.scrollIntoView();
         productNameInput.value = product.name;
         productPriceInput.value = product.price;
         productCategoryInput.value = product.category;
         productDescriptionInput.value = product.description;
-        // productImageInput.value = product.image;
         addProductBtn.classList.add("d-none");
         editProductBtn.classList.remove("d-none");
         editIndex = index;
@@ -140,9 +181,10 @@ function createProductCard(product, index) {
 
     let deleteButton = document.createElement("button");
     deleteButton.classList.add("btn", "btn-outline-danger", "col-5");
-    deleteButton.textContent = "Delete";
+    deleteButton.innerHTML = "<i class='fa fa-trash me-1'></i>Delete";
     deleteButton.addEventListener("click", () => {
         productsList.splice(index, 1);
+        updateProductsLocalStorage();
         displayProducts();
     })
 
@@ -160,6 +202,24 @@ function createProductCard(product, index) {
 
 
 // Search
-// searchInput = document.getElementById("product-search");
-// searchInput.addEventListener("input", () => {
-    
+searchInput = document.getElementById("product-search");
+searchInput.addEventListener("input", () => {
+    filterBySearchTerm();
+    displayProducts("searchTerm");
+})
+
+function filterBySearchTerm() {
+    displayList = [];
+    for (let i = 0; i < productsList.length; i++) {
+        if (productsList[i].name.toLowerCase().includes(searchInput.value.toLowerCase())) {
+            // let x = productsList[i].name.substring(searchInput.value[0], searchInput.value[searchInput.value.length-1])
+            displayList.push(productsList[i]);
+        }
+    }
+    for (let i = 0; i < displayList.length; i++) {
+        productsContainer.appendChild(createProductCard(displayList[i], i, searchInput.value.toLowerCase()));
+    }
+}
+
+localStorage.getItem("products") ? productsList = JSON.parse(localStorage.getItem("products")) : productsList = [];
+displayProducts();
