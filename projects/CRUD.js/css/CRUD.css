@@ -2,6 +2,8 @@
 {
     --primary-color: #EFD81D;
     --dark-background-color: #0B1234;
+    --valid-color: #4BB543;
+    --invalid-color: #FF0000;
 }
 
 
@@ -148,6 +150,20 @@ box-shadow: 0px 0px 2px 3px var(--primary-color);
 {
     background-color: var(--primary-color);
 }
+
+.form-control.is-valid
+{
+    box-shadow: 0px 0px 2px 3px var(--valid-color);
+}
+
+.form-control.is-invalid
+{
+    box-shadow: 0px 0px 2px 3px var(--invalid-color);
+}
+
+
+
+
 
 .toast-body
 {

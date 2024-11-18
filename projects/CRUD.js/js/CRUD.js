@@ -1,3 +1,4 @@
+"use strict";
 //Landing Section
 let landingButton = document.querySelector(".landing-button");
 let landingButtonText = document.querySelector(".landing-button span");
@@ -22,7 +23,6 @@ const productImageInput = document.getElementById("productImage");
 const addProductBtn = document.querySelector(".admin-dashboard button[type='submit']");
 const submitEditBtn = document.getElementById("submitEditBtn");
 const cancelEditBtn = document.getElementById("cancelEditBtn");
-console.log(cancelEditBtn);
 
 let productsList = [];
 let displayList = [];
@@ -35,17 +35,32 @@ let updateProductsLocalStorage = () => {
 
 addProductBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    let product = {
-        name: productNameInput.value,
-        price: productPriceInput.value,
-        category: productCategoryInput.value,
-        description: productDescriptionInput.value,
-        image: productImageInput.files.length > 0 ? productImageInput.files[0].name : "default.png",
+    if (!isValidProduct()) {
+        return;
+    } else {
+        let product = {
+            name: productNameInput.value,
+            price: productPriceInput.value,
+            category: productCategoryInput.value,
+            description: productDescriptionInput.value,
+            image: productImageInput.files.length > 0 ? productImageInput.files[0].name : "default.png",
+        }
+        productsList.push(product);
+        updateProductsLocalStorage();
+        clearInputs();
+        displayProducts();
     }
-    productsList.push(product);
-    updateProductsLocalStorage();
-    clearInputs();
-    displayProducts();
+    // let product = {
+    //     name: productNameInput.value,
+    //     price: productPriceInput.value,
+    //     category: productCategoryInput.value,
+    //     description: productDescriptionInput.value,
+    //     image: productImageInput.files.length > 0 ? productImageInput.files[0].name : "default.png",
+    // }
+    // productsList.push(product);
+    // updateProductsLocalStorage();
+    // clearInputs();
+    // displayProducts();
 })
 
 let editIndex;
@@ -84,6 +99,11 @@ let clearInputs = () => {
     productCategoryInput.value = "";
     productDescriptionInput.value = "";
     productImageInput.value = "";
+    productNameInput.classList.remove("is-valid", "is-invalid");
+    productPriceInput.classList.remove("is-valid", "is-invalid");
+    productCategoryInput.classList.remove("is-valid", "is-invalid");
+    productDescriptionInput.classList.remove("is-valid", "is-invalid");
+    productImageInput.classList.remove("is-valid", "is-invalid");
 }
 
 let productsContainer = document.querySelector(".products-container");
@@ -176,17 +196,21 @@ function createProductCard(product, index, nameHighlight = "") {
     editButton.classList.add("btn", "btn-outline-warning", "col-5");
     editButton.innerHTML = "<i class='fa fa-edit'></i> Edit";
     editButton.addEventListener("click", () => {
+        pullProductData();
         adminSection.scrollIntoView();
-        productNameInput.value = product.name;
-        productPriceInput.value = product.price;
-        productCategoryInput.value = product.category;
-        productDescriptionInput.value = product.description;
-        // productImageInput.value = product.image;    //! Not Working
         addProductBtn.classList.add("d-none");
         submitEditBtn.classList.remove("d-none");
         cancelEditBtn.classList.remove("d-none");
         editIndex = index;
     })
+
+    function pullProductData() {
+        productNameInput.value = product.name;
+        productPriceInput.value = product.price;
+        productCategoryInput.value = product.category;
+        productDescriptionInput.value = product.description;
+        // productImageInput.value = product.image;    //! Not Working
+    }
 
     let deleteButton = document.createElement("button");
     deleteButton.classList.add("btn", "btn-outline-danger", "col-5");
@@ -204,7 +228,7 @@ function createProductCard(product, index, nameHighlight = "") {
 
     productCard.appendChild(cardBody);
 
-   
+
 
     return productGrid;
 }
@@ -233,7 +257,7 @@ function undoDeleteProduct() {
 }
 
 // Search
-searchInput = document.getElementById("product-search");
+let searchInput = document.getElementById("product-search");
 searchInput.addEventListener("input", () => {
     filterBySearchTerm();
     displayProducts("searchTerm");
@@ -243,7 +267,6 @@ function filterBySearchTerm() {
     displayList = [];
     for (let i = 0; i < productsList.length; i++) {
         if (productsList[i].name.toLowerCase().includes(searchInput.value.toLowerCase())) {
-            // let x = productsList[i].name.substring(searchInput.value[0], searchInput.value[searchInput.value.length-1])
             displayList.push(productsList[i]);
         }
     }
@@ -251,6 +274,97 @@ function filterBySearchTerm() {
         productsContainer.appendChild(createProductCard(displayList[i], i, searchInput.value.toLowerCase()));
     }
 }
+
+
+//Validation
+
+
+function isValidProduct()
+{
+    return (isValidName() && isValidPrice() && isValidCategory() && isValidDescription());
+}
+
+function isValidName()
+{
+     return /^.{3,20}$/.test(productNameInput.value);
+}
+function isValidPrice()
+{
+     return /^\d{1,5}(\.\d{2})?$/.test(productPriceInput.value);
+}
+function isValidCategory()
+{
+     return /.+/.test(productCategoryInput.value);
+}
+function isValidDescription()
+{
+     return /^.{10,300}$/.test(productDescriptionInput.value);
+}
+
+
+//Feedback on Inputs
+
+productNameInput.addEventListener("input", () => {
+    if (isValidName()) {
+        productNameInput.classList.remove("is-invalid");
+        productNameInput.classList.add("is-valid");
+    } else {
+        productNameInput.classList.remove("is-valid");
+        productNameInput.classList.add("is-invalid");
+    }
+})
+
+// productNameInput.addEventListener("blur", () => {
+//     if (isValidName()) {
+//         productNameInput.classList.remove("is-invalid");
+//         productNameInput.classList.remove("is-valid");
+//     } else {
+//         productNameInput.classList.remove("is-valid");
+//         productNameInput.classList.remove("is-invalid");
+//     }
+// })
+
+productPriceInput.addEventListener("input", () => {
+    if (isValidPrice()) {
+        productPriceInput.classList.remove("is-invalid");
+        productPriceInput.classList.add("is-valid");
+    } else {
+        productPriceInput.classList.remove("is-valid");
+        productPriceInput.classList.add("is-invalid");
+    }
+})
+
+// productPriceInput.addEventListener("blur", () => {
+//     if (isValidPrice()) {
+//         productPriceInput.classList.remove("is-invalid");
+//         productPriceInput.classList.remove("is-valid");
+//     } else {
+//         productPriceInput.classList.remove("is-valid");
+//         productPriceInput.classList.remove("is-invalid");
+//     }
+// })
+
+productDescriptionInput.addEventListener("input", () => {
+    if (isValidDescription()) {
+        productDescriptionInput.classList.remove("is-invalid");
+        productDescriptionInput.classList.add("is-valid");
+    } else {
+        productDescriptionInput.classList.remove("is-valid");
+        productDescriptionInput.classList.add("is-invalid");
+    }
+})
+
+// productDescriptionInput.addEventListener("blur", () => {
+//     if (isValidDescription()) {
+//         productDescriptionInput.classList.remove("is-invalid");
+//         productDescriptionInput.classList.remove("is-valid");
+//     } else {
+//         productDescriptionInput.classList.remove("is-valid");
+//         productDescriptionInput.classList.remove("is-invalid");
+//     }
+// })
+
+
 
 localStorage.getItem("products") ? productsList = JSON.parse(localStorage.getItem("products")) : productsList = [];
 displayProducts();
