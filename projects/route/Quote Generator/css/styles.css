@@ -1,0 +1,12 @@
+body
+{
+    min-height: 100vh;
+    font-family: "Host Grotesk", sans-serif;
+}
+
+h2.display-1
+{
+    font-size: 10rem;
+    display: inline;
+    margin: 0;
+}
