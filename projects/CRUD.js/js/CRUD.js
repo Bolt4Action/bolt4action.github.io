@@ -26,7 +26,7 @@ const cancelEditBtn = document.getElementById("cancelEditBtn");
 
 let productsList = [];
 let displayList = [];
-let deletedProductsList = [];
+let deletedProduct;
 
 
 let updateProductsLocalStorage = () => {
@@ -286,16 +286,14 @@ undoDeleteBtn.addEventListener("click", () => {
 const undoDeleteToast = document.getElementById('undoDeleteToast')
 const toastBootstrapDelete = bootstrap.Toast.getOrCreateInstance(undoDeleteToast);
 function deleteProduct(index) {
-    let deletedProduct = productsList.splice(index, 1)[0];
+    deletedProduct = productsList.splice(index, 1)[0];
     toastBootstrapDelete.show()
     updateProductsLocalStorage();
     displayProducts();
     deletedProduct.index = index;
-    deletedProductsList.unshift(deletedProduct);
 }
 
 function undoDeleteProduct() {
-    let deletedProduct = deletedProductsList.shift();
     productsList.splice(deletedProduct.index, 0, deletedProduct);
     updateProductsLocalStorage();
     displayProducts();
