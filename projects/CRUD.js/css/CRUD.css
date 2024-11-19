@@ -1,7 +1,7 @@
 :root {
     --primary-color: #EFD81D;
     --dark-background-color: #0B1234;
-    --valid-color: #4bb54377;
+    --valid-color: #4BB543;
     --invalid-color: #ff000068;
 }
 
@@ -123,8 +123,7 @@ section {
     object-fit: contain;
 }
 
-.form-control:focus,
-select:focus {
+.form-control:focus {
     box-shadow: 0px 0px 2px 3px var(--primary-color);
 }
 
@@ -144,4 +143,12 @@ select.is-invalid {
 
 .input-requirements.show {
     display: block !important;
+}
+
+@media screen and (max-width: 768px) {
+    .landing-button
+    {
+        margin-inline-start: -2.2rem;
+    }
+    
 }

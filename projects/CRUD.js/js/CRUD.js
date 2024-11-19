@@ -292,7 +292,7 @@ function isValidName() {
     return /^.{3,20}$/.test(productNameInput.value);
 }
 function isValidPrice() {
-    return /^\d{1,5}(\.\d{2})?$/.test(productPriceInput.value);
+    return (/^\d{1,5}(\.\d{2})?$/.test(productPriceInput.value) && productPriceInput.value > 0);
 }
 function isValidCategory() {
     return /.+/.test(productCategoryInput.value);
@@ -316,6 +316,7 @@ productNameInput.addEventListener("input", () => {
     else {
         productNameInput.classList.remove("is-valid");
         productNameInput.classList.remove("is-invalid");
+        nameInvalidBox.classList.remove("show");
     }
 })
 
@@ -340,6 +341,7 @@ productPriceInput.addEventListener("input", () => {
     else {
         productPriceInput.classList.remove("is-valid");
         productPriceInput.classList.remove("is-invalid");
+        priceInvalidBox.classList.remove("show");
     }
 })
 
@@ -364,6 +366,7 @@ productDescriptionInput.addEventListener("input", () => {
     else {
         productDescriptionInput.classList.remove("is-valid");
         productDescriptionInput.classList.remove("is-invalid");
+        descriptionInvalidBox.classList.remove("show");
     }
 })
 

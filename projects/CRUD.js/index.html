@@ -44,7 +44,7 @@
                 </div>
                 <form class="px-lg-5 px-2 pb-2 pt-5 border-2">
                     <div class="mb-4">
-                        <input type="text" class="form-control" id="productName" placeholder="Product Name">
+                        <input type="text" class="form-control" id="productName" placeholder="Product Name" autocomplete="off">
                         <div id="nameInvalidBox"
                             class="input-requirements bg-danger-subtle pt-3 pb-1 mt-1 d-none rounded-bottom-2">
                             <ul>
@@ -58,8 +58,10 @@
                         <div id="priceInvalidBox"
                             class="input-requirements bg-danger-subtle pt-3 pb-1 mt-1 d-none rounded-bottom-2">
                             <ul>
+                                <li class="text-danger">Price must be greater than zero (We are not a charity.).</li>
                                 <li class="text-danger">Price can't exceed 5 digits, Not including fractions.</li>
-                                <li class="text-danger">Price can only consist of digits "0-9" and ".".</ul>
+                                <li class="text-danger">Price can only consist of digits "0-9" and ".".</li>
+                                </ul>
                         </div>
                     </div>
                     <select id="productCategory" class="form-select form-select-sm mb-3"
@@ -101,16 +103,14 @@
             </div>
         </section>
         <section id="products-section" class="bg-body-tertiary">
-            <header id="products-navbar" class="navbar row container-fluid mb-5">
-                <div class="filter-container col-4">
-                </div>
-                <h2 class="col-4 display-4 fw-bolder text-center ">Products <span class="text-primary">List</span></h2>
-                <div class="search-box col-4 px-5 d-flex justify-content-between">
+            <header id="products-navbar" class="navbar row container-fluid mb-5 justify-content-center">
+                <h2 class="col-6 display-4 fw-bolder text-center ">Products <span class="text-primary">List</span></h2>
+            </header>
+            <div class="container">
+                <div class="search-box col-12 px-5 mb-4 d-flex justify-content-between">
                     <input id="product-search" class="form-control me-2" type="search" placeholder="Search"
                         aria-label="Search">
                 </div>
-            </header>
-            <div class="container">
                 <div class="row">
                     <!-- <div class="col-lg-4">
                         <div class="filters-container bg-warning w-100 h-100 rounded-3 p-3">
