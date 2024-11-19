@@ -15,11 +15,18 @@ landingButtonText.addEventListener("transitionend", () => {
 
 
 // CRUD Operations
-const productNameInput = document.getElementById("productName");
-const productPriceInput = document.getElementById("productPrice");
-const productCategoryInput = document.getElementById("productCategory");
-const productDescriptionInput = document.getElementById("productDescription");
-const productImageInput = document.getElementById("productImage");
+let AdminInputs = {
+    name: document.getElementById("productName"),
+    price: document.getElementById("productPrice"),
+    category: document.getElementById("productCategory"),
+    description: document.getElementById("productDescription"),
+    image: document.getElementById("productImage")
+};
+// const AdminInputs.name = document.getElementById("productName");
+// const AdminInputs.price = document.getElementById("productPrice");
+// const AdminInputs.category = document.getElementById("productCategory");
+// const AdminInputs.description = document.getElementById("productDescription");
+// const AdminInputs.image = document.getElementById("productImage");
 const addProductBtn = document.querySelector(".admin-dashboard button[type='submit']");
 const submitEditBtn = document.getElementById("submitEditBtn");
 const cancelEditBtn = document.getElementById("cancelEditBtn");
@@ -61,11 +68,11 @@ addProductBtn.addEventListener("click", (e) => {
         return;
     }
     let product = {
-        name: productNameInput.value,
-        price: productPriceInput.value,
-        category: productCategoryInput.value,
-        description: productDescriptionInput.value,
-        image: productImageInput.files.length > 0 ? productImageInput.files[0].name : "default.png",
+        name: AdminInputs.name.value,
+        price: AdminInputs.price.value,
+        category: AdminInputs.category.value,
+        description: AdminInputs.description.value,
+        image: AdminInputs.image.files.length > 0 ? AdminInputs.image.files[0].name : "default.png",
     }
     productsList.push(product);
     toastBootstrapAdd.show();
@@ -75,15 +82,15 @@ addProductBtn.addEventListener("click", (e) => {
 })
 
 function showInvalidProductInputs() {
-    productNameInput.classList.contains("is-valid") ? null : productNameInput.classList.add("is-invalid");
-    productPriceInput.classList.contains("is-valid") ? null : productPriceInput.classList.add("is-invalid");
-    productDescriptionInput.classList.contains("is-valid") ? null : productDescriptionInput.classList.add("is-invalid");
-    if (productCategoryInput.value === "") {
-        productCategoryInput.classList.add("is-invalid");
-        productCategoryInput.classList.remove("is-valid");
+    AdminInputs.name.classList.contains("is-valid") ? null : AdminInputs.name.classList.add("is-invalid");
+    AdminInputs.price.classList.contains("is-valid") ? null : AdminInputs.price.classList.add("is-invalid");
+    AdminInputs.description.classList.contains("is-valid") ? null : AdminInputs.description.classList.add("is-invalid");
+    if (AdminInputs.category.value === "") {
+        AdminInputs.category.classList.add("is-invalid");
+        AdminInputs.category.classList.remove("is-valid");
     } else {
-        productCategoryInput.classList.add("is-valid");
-        productCategoryInput.classList.remove("is-invalid");
+        AdminInputs.category.classList.add("is-valid");
+        AdminInputs.category.classList.remove("is-invalid");
     }
 }
 
@@ -96,11 +103,11 @@ submitEditBtn.addEventListener("click", (e) => {
         return;
     }
     let product = {
-        name: productNameInput.value,
-        price: productPriceInput.value,
-        category: productCategoryInput.value,
-        description: productDescriptionInput.value,
-        image: productImageInput.files.length > 0 ? productImageInput.files[0].name : "default.png",
+        name: AdminInputs.name.value,
+        price: AdminInputs.price.value,
+        category: AdminInputs.category.value,
+        description: AdminInputs.description.value,
+        image: AdminInputs.image.files.length > 0 ? AdminInputs.image.files[0].name : "default.png",
     }
     oldProduct = productsList[editIndex];
     productsList[editIndex] = product;
@@ -128,27 +135,27 @@ let oldProductCategory;
 let oldProductDescription;
 
 let clearInputs = () => {
-    oldProductName = productNameInput.value;
-    oldProductPrice = productPriceInput.value;
-    oldProductCategory = productCategoryInput.value;
-    oldProductDescription = productDescriptionInput.value;
-    productNameInput.value = "";
-    productPriceInput.value = "";
-    productCategoryInput.value = "";
-    productDescriptionInput.value = "";
-    productImageInput.value = "";
-    productNameInput.classList.remove("is-valid", "is-invalid");
-    productPriceInput.classList.remove("is-valid", "is-invalid");
-    productCategoryInput.classList.remove("is-valid", "is-invalid");
-    productDescriptionInput.classList.remove("is-valid", "is-invalid");
-    productImageInput.classList.remove("is-valid", "is-invalid");
+    oldProductName = AdminInputs.name.value;
+    oldProductPrice = AdminInputs.price.value;
+    oldProductCategory = AdminInputs.category.value;
+    oldProductDescription = AdminInputs.description.value;
+    AdminInputs.name.value = "";
+    AdminInputs.price.value = "";
+    AdminInputs.category.value = "";
+    AdminInputs.description.value = "";
+    AdminInputs.image.value = "";
+    AdminInputs.name.classList.remove("is-valid", "is-invalid");
+    AdminInputs.price.classList.remove("is-valid", "is-invalid");
+    AdminInputs.category.classList.remove("is-valid", "is-invalid");
+    AdminInputs.description.classList.remove("is-valid", "is-invalid");
+    AdminInputs.image.classList.remove("is-valid", "is-invalid");
 }
 
 function undoClearInputs() {
-    productNameInput.value = oldProductName;
-    productPriceInput.value = oldProductPrice;
-    productCategoryInput.value = oldProductCategory;
-    productDescriptionInput.value = oldProductDescription;
+    AdminInputs.name.value = oldProductName;
+    AdminInputs.price.value = oldProductPrice;
+    AdminInputs.category.value = oldProductCategory;
+    AdminInputs.description.value = oldProductDescription;
 }
 
 let productsContainer = document.querySelector(".products-container");
@@ -250,11 +257,11 @@ function createProductCard(product, index, nameHighlight = "") {
     })
 
     function pullProductData() {
-        productNameInput.value = product.name;
-        productPriceInput.value = product.price;
-        productCategoryInput.value = product.category;
-        productDescriptionInput.value = product.description;
-        // productImageInput.value = product.image;    //! Not Working
+        AdminInputs.name.value = product.name;
+        AdminInputs.price.value = product.price;
+        AdminInputs.category.value = product.category;
+        AdminInputs.description.value = product.description;
+        // AdminInputs.image.value = product.image;    //! Not Working
     }
 
     let deleteButton = document.createElement("button");
@@ -327,90 +334,90 @@ function isValidProduct() {
 }
 
 function isValidName() {
-    return /^.{3,20}$/.test(productNameInput.value);
+    return /^.{3,20}$/.test(AdminInputs.name.value);
 }
 function isValidPrice() {
-    return (/^\d{1,5}(\.\d{2})?$/.test(productPriceInput.value) && productPriceInput.value > 0);
+    return (/^\d{1,5}(\.\d{2})?$/.test(AdminInputs.price.value) && AdminInputs.price.value > 0);
 }
 function isValidCategory() {
-    return /.+/.test(productCategoryInput.value);
+    return /.+/.test(AdminInputs.category.value);
 }
 function isValidDescription() {
-    return /^.{10,300}$/.test(productDescriptionInput.value);
+    return /^.{10,300}$/.test(AdminInputs.description.value);
 }
 
 
 //Feedback on Inputs
 
-productNameInput.addEventListener("input", () => {
+AdminInputs.name.addEventListener("input", () => {
     if (isValidName()) {
-        productNameInput.classList.remove("is-invalid");
-        productNameInput.classList.add("is-valid");
+        AdminInputs.name.classList.remove("is-invalid");
+        AdminInputs.name.classList.add("is-valid");
         nameInvalidBox.classList.remove("show");
-    } else if (!isValidName() && productNameInput.value.length > 0) {
-        productNameInput.classList.remove("is-valid");
-        productNameInput.classList.add("is-invalid");
+    } else if (!isValidName() && AdminInputs.name.value.length > 0) {
+        AdminInputs.name.classList.remove("is-valid");
+        AdminInputs.name.classList.add("is-invalid");
     }
     else {
-        productNameInput.classList.remove("is-valid");
-        productNameInput.classList.remove("is-invalid");
+        AdminInputs.name.classList.remove("is-valid");
+        AdminInputs.name.classList.remove("is-invalid");
         nameInvalidBox.classList.remove("show");
     }
 })
 
 let nameInvalidBox = document.getElementById("nameInvalidBox");
-productNameInput.addEventListener("blur", () => {
-    if (isValidName() || productNameInput.value == "") {
+AdminInputs.name.addEventListener("blur", () => {
+    if (isValidName() || AdminInputs.name.value == "") {
         nameInvalidBox.classList.remove("show");
     } else {
         nameInvalidBox.classList.add("show");
     }
 })
 
-productPriceInput.addEventListener("input", () => {
+AdminInputs.price.addEventListener("input", () => {
     if (isValidPrice()) {
-        productPriceInput.classList.remove("is-invalid");
-        productPriceInput.classList.add("is-valid");
+        AdminInputs.price.classList.remove("is-invalid");
+        AdminInputs.price.classList.add("is-valid");
         priceInvalidBox.classList.remove("show");
-    } else if (!isValidPrice() && productPriceInput.value.length > 0) {
-        productPriceInput.classList.remove("is-valid");
-        productPriceInput.classList.add("is-invalid");
+    } else if (!isValidPrice() && AdminInputs.price.value.length > 0) {
+        AdminInputs.price.classList.remove("is-valid");
+        AdminInputs.price.classList.add("is-invalid");
     }
     else {
-        productPriceInput.classList.remove("is-valid");
-        productPriceInput.classList.remove("is-invalid");
+        AdminInputs.price.classList.remove("is-valid");
+        AdminInputs.price.classList.remove("is-invalid");
         priceInvalidBox.classList.remove("show");
     }
 })
 
 let priceInvalidBox = document.getElementById("priceInvalidBox");
-productPriceInput.addEventListener("blur", () => {
-    if (isValidPrice() || productPriceInput.value == "") {
+AdminInputs.price.addEventListener("blur", () => {
+    if (isValidPrice() || AdminInputs.price.value == "") {
         priceInvalidBox.classList.remove("show");
     } else {
         priceInvalidBox.classList.add("show");
     }
 })
 
-productDescriptionInput.addEventListener("input", () => {
+AdminInputs.description.addEventListener("input", () => {
     if (isValidDescription()) {
-        productDescriptionInput.classList.remove("is-invalid");
-        productDescriptionInput.classList.add("is-valid");
+        AdminInputs.description.classList.remove("is-invalid");
+        AdminInputs.description.classList.add("is-valid");
         descriptionInvalidBox.classList.remove("show");
-    } else if (!isValidDescription() && productDescriptionInput.value.length > 0) {
-        productDescriptionInput.classList.remove("is-valid");
-        productDescriptionInput.classList.add("is-invalid");
+    } else if (!isValidDescription() && AdminInputs.description.value.length > 0) {
+        AdminInputs.description.classList.remove("is-valid");
+        AdminInputs.description.classList.add("is-invalid");
     }
     else {
-        productDescriptionInput.classList.remove("is-valid");
-        productDescriptionInput.classList.remove("is-invalid");
+        AdminInputs.description.classList.remove("is-valid");
+        AdminInputs.description.classList.remove("is-invalid");
         descriptionInvalidBox.classList.remove("show");
     }
 })
 
 let descriptionInvalidBox = document.getElementById("DescriptionInvalidBox");
-productDescriptionInput.addEventListener("blur", () => {
-    if (isValidDescription() || productDescriptionInput.value == "") {
+AdminInputs.description.addEventListener("blur", () => {
+    if (isValidDescription() || AdminInputs.description.value == "") {
         descriptionInvalidBox.classList.remove("show");
     } else {
         descriptionInvalidBox.classList.add("show");
@@ -418,24 +425,24 @@ productDescriptionInput.addEventListener("blur", () => {
 })
 
 
-productCategoryInput.addEventListener("input", () => {
+AdminInputs.category.addEventListener("input", () => {
     if (isValidCategory()) {
-        productCategoryInput.classList.remove("is-invalid");
-        productCategoryInput.classList.add("is-valid");
+        AdminInputs.category.classList.remove("is-invalid");
+        AdminInputs.category.classList.add("is-valid");
         categoryInvalidBox.classList.remove("show");
-    } else if (!isValidCategory() && productCategoryInput.value.length > 0) {
-        productCategoryInput.classList.remove("is-valid");
-        productCategoryInput.classList.add("is-invalid");
+    } else if (!isValidCategory() && AdminInputs.category.value.length > 0) {
+        AdminInputs.category.classList.remove("is-valid");
+        AdminInputs.category.classList.add("is-invalid");
     }
     else {
-        productCategoryInput.classList.remove("is-valid");
-        productCategoryInput.classList.remove("is-invalid");
+        AdminInputs.category.classList.remove("is-valid");
+        AdminInputs.category.classList.remove("is-invalid");
     }
 })
 
 let categoryInvalidBox = document.getElementById("categoryInvalidBox");
-productCategoryInput.addEventListener("blur", () => {
-    if (isValidCategory() || productCategoryInput.value == "") {
+AdminInputs.category.addEventListener("blur", () => {
+    if (isValidCategory() || AdminInputs.category.value == "") {
         categoryInvalidBox.classList.remove("show");
     } else {
         categoryInvalidBox.classList.add("show");
