@@ -13,7 +13,11 @@ async function getRandomQuoteAPI() {
 }
 
 document.body.addEventListener("click", () => {
-    getRandomQuoteAPI();
+    if (window.getSelection().type === "Caret")
+    {
+        getRandomQuoteAPI();
+    }
+    // getRandomQuoteAPI();
 });
 
 getRandomQuoteAPI();
