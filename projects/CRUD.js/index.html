@@ -45,19 +45,40 @@
                 <form class="px-lg-5 px-2 pb-2 pt-5 border-2">
                     <div class="mb-4">
                         <input type="text" class="form-control" id="productName" placeholder="Product Name">
+                        <div id="nameInvalidBox"
+                            class="input-requirements bg-danger-subtle pt-3 pb-1 mt-1 d-none rounded-bottom-2">
+                            <ul>
+                                <li class="text-danger">Product Name must contain 3-20 characters.</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="mb-4">
-                        <input type="number" class="form-control" id="productPrice" placeholder="Product Price" autocomplete="off">
+                        <input type="number" class="form-control" id="productPrice" placeholder="Product Price"
+                            autocomplete="off">
+                        <div id="priceInvalidBox"
+                            class="input-requirements bg-danger-subtle pt-3 pb-1 mt-1 d-none rounded-bottom-2">
+                            <ul>
+                                <li class="text-danger">Price can't exceed 5 digits, Not including fractions.</li>
+                                <li class="text-danger">Price can only consist of digits "0-9" and ".".</ul>
+                        </div>
                     </div>
-                    <select id="productCategory" class="form-select form-select-sm mb-3" aria-label="Large select example">
+                    <select id="productCategory" class="form-select form-select-sm mb-3"
+                        aria-label="Large select example">
                         <option value="" disabled selected>Select a Product Category</option>
                         <option value="Phones">Phones</option>
                         <option value="Laptops">Laptops</option>
                         <option value="Appliances">Appliances</option>
-                      </select>
+                    </select>
                     <div class="mb-4">
                         <input type="text" class="form-control" id="productDescription"
-                            placeholder="Product Description">
+                            placeholder="Product Description" autocomplete="off">
+                        <div id="DescriptionInvalidBox"
+                            class="input-requirements bg-danger-subtle pt-3 pb-1 mt-1 d-none rounded-bottom-2">
+                            <ul>
+                                <li class="text-danger">Description must include at least 10 characters.</li>
+                                <li class="text-danger">Description must not exceed 300 characters.</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">Product Image <span
@@ -117,7 +138,7 @@
                 <strong class="me-auto">Item Deleted</strong>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
-            <div class="toast-body text-center bg-white">
+            <div class="toast-body text-center bg-white rounded-bottom-3">
                 <button id="undoDeleteBtn" class="btn border-0 text-decoration-underline text-warning">Click here to
                     undo.</button>
             </div>

@@ -36,36 +36,42 @@ let updateProductsLocalStorage = () => {
 addProductBtn.addEventListener("click", (e) => {
     e.preventDefault();
     if (!isValidProduct()) {
+        showInvalidProductInputs();
         return;
-    } else {
-        let product = {
-            name: productNameInput.value,
-            price: productPriceInput.value,
-            category: productCategoryInput.value,
-            description: productDescriptionInput.value,
-            image: productImageInput.files.length > 0 ? productImageInput.files[0].name : "default.png",
-        }
-        productsList.push(product);
-        updateProductsLocalStorage();
-        clearInputs();
-        displayProducts();
     }
-    // let product = {
-    //     name: productNameInput.value,
-    //     price: productPriceInput.value,
-    //     category: productCategoryInput.value,
-    //     description: productDescriptionInput.value,
-    //     image: productImageInput.files.length > 0 ? productImageInput.files[0].name : "default.png",
-    // }
-    // productsList.push(product);
-    // updateProductsLocalStorage();
-    // clearInputs();
-    // displayProducts();
+    let product = {
+        name: productNameInput.value,
+        price: productPriceInput.value,
+        category: productCategoryInput.value,
+        description: productDescriptionInput.value,
+        image: productImageInput.files.length > 0 ? productImageInput.files[0].name : "default.png",
+    }
+    productsList.push(product);
+    updateProductsLocalStorage();
+    clearInputs();
+    displayProducts();
 })
+
+function showInvalidProductInputs() {
+    productNameInput.classList.contains("is-valid") ? null : productNameInput.classList.add("is-invalid");
+    productPriceInput.classList.contains("is-valid") ? null : productPriceInput.classList.add("is-invalid");
+    productDescriptionInput.classList.contains("is-valid") ? null : productDescriptionInput.classList.add("is-invalid");
+    if (productCategoryInput.value === "") {
+        productCategoryInput.classList.add("is-invalid");
+        productCategoryInput.classList.remove("is-valid");
+    } else {
+        productCategoryInput.classList.add("is-valid");
+        productCategoryInput.classList.remove("is-invalid");
+    }
+}
 
 let editIndex;
 submitEditBtn.addEventListener("click", (e) => {
     e.preventDefault();
+    if (!isValidProduct()) {
+        showInvalidProductInputs();
+        return;
+    }
     let product = {
         name: productNameInput.value,
         price: productPriceInput.value,
@@ -81,7 +87,6 @@ submitEditBtn.addEventListener("click", (e) => {
     submitEditBtn.classList.add("d-none");
     cancelEditBtn.classList.add("d-none");
     productsSection.scrollIntoView();
-
 })
 
 cancelEditBtn.addEventListener("click", () => {
@@ -279,26 +284,21 @@ function filterBySearchTerm() {
 //Validation
 
 
-function isValidProduct()
-{
+function isValidProduct() {
     return (isValidName() && isValidPrice() && isValidCategory() && isValidDescription());
 }
 
-function isValidName()
-{
-     return /^.{3,20}$/.test(productNameInput.value);
+function isValidName() {
+    return /^.{3,20}$/.test(productNameInput.value);
 }
-function isValidPrice()
-{
-     return /^\d{1,5}(\.\d{2})?$/.test(productPriceInput.value);
+function isValidPrice() {
+    return /^\d{1,5}(\.\d{2})?$/.test(productPriceInput.value);
 }
-function isValidCategory()
-{
-     return /.+/.test(productCategoryInput.value);
+function isValidCategory() {
+    return /.+/.test(productCategoryInput.value);
 }
-function isValidDescription()
-{
-     return /^.{10,300}$/.test(productDescriptionInput.value);
+function isValidDescription() {
+    return /^.{10,300}$/.test(productDescriptionInput.value);
 }
 
 
@@ -308,7 +308,8 @@ productNameInput.addEventListener("input", () => {
     if (isValidName()) {
         productNameInput.classList.remove("is-invalid");
         productNameInput.classList.add("is-valid");
-    } else if(!isValidName() && productNameInput.value.length > 0) {
+        nameInvalidBox.classList.remove("show");
+    } else if (!isValidName() && productNameInput.value.length > 0) {
         productNameInput.classList.remove("is-valid");
         productNameInput.classList.add("is-invalid");
     }
@@ -318,21 +319,21 @@ productNameInput.addEventListener("input", () => {
     }
 })
 
-// productNameInput.addEventListener("blur", () => {
-//     if (isValidName()) {
-//         productNameInput.classList.remove("is-invalid");
-//         productNameInput.classList.remove("is-valid");
-//     } else {
-//         productNameInput.classList.remove("is-valid");
-//         productNameInput.classList.remove("is-invalid");
-//     }
-// })
+let nameInvalidBox = document.getElementById("nameInvalidBox");
+productNameInput.addEventListener("blur", () => {
+    if (isValidName() || productNameInput.value == "") {
+        nameInvalidBox.classList.remove("show");
+    } else {
+        nameInvalidBox.classList.add("show");
+    }
+})
 
 productPriceInput.addEventListener("input", () => {
     if (isValidPrice()) {
         productPriceInput.classList.remove("is-invalid");
         productPriceInput.classList.add("is-valid");
-    } else if(!isValidPrice() && productPriceInput.value.length > 0) {
+        priceInvalidBox.classList.remove("show");
+    } else if (!isValidPrice() && productPriceInput.value.length > 0) {
         productPriceInput.classList.remove("is-valid");
         productPriceInput.classList.add("is-invalid");
     }
@@ -342,21 +343,21 @@ productPriceInput.addEventListener("input", () => {
     }
 })
 
-// productPriceInput.addEventListener("blur", () => {
-//     if (isValidPrice()) {
-//         productPriceInput.classList.remove("is-invalid");
-//         productPriceInput.classList.remove("is-valid");
-//     } else {
-//         productPriceInput.classList.remove("is-valid");
-//         productPriceInput.classList.remove("is-invalid");
-//     }
-// })
+let priceInvalidBox = document.getElementById("priceInvalidBox");
+productPriceInput.addEventListener("blur", () => {
+    if (isValidPrice() || productPriceInput.value == "") {
+        priceInvalidBox.classList.remove("show");
+    } else {
+        priceInvalidBox.classList.add("show");
+    }
+})
 
 productDescriptionInput.addEventListener("input", () => {
     if (isValidDescription()) {
         productDescriptionInput.classList.remove("is-invalid");
         productDescriptionInput.classList.add("is-valid");
-    } else if(!isValidDescription() && productDescriptionInput.value.length > 0) {
+        descriptionInvalidBox.classList.remove("show");
+    } else if (!isValidDescription() && productDescriptionInput.value.length > 0) {
         productDescriptionInput.classList.remove("is-valid");
         productDescriptionInput.classList.add("is-invalid");
     }
@@ -366,15 +367,39 @@ productDescriptionInput.addEventListener("input", () => {
     }
 })
 
-// productDescriptionInput.addEventListener("blur", () => {
-//     if (isValidDescription()) {
-//         productDescriptionInput.classList.remove("is-invalid");
-//         productDescriptionInput.classList.remove("is-valid");
-//     } else {
-//         productDescriptionInput.classList.remove("is-valid");
-//         productDescriptionInput.classList.remove("is-invalid");
-//     }
-// })
+let descriptionInvalidBox = document.getElementById("DescriptionInvalidBox");
+productDescriptionInput.addEventListener("blur", () => {
+    if (isValidDescription() || productDescriptionInput.value == "") {
+        descriptionInvalidBox.classList.remove("show");
+    } else {
+        descriptionInvalidBox.classList.add("show");
+    }
+})
+
+
+productCategoryInput.addEventListener("input", () => {
+    if (isValidCategory()) {
+        productCategoryInput.classList.remove("is-invalid");
+        productCategoryInput.classList.add("is-valid");
+        categoryInvalidBox.classList.remove("show");
+    } else if (!isValidCategory() && productCategoryInput.value.length > 0) {
+        productCategoryInput.classList.remove("is-valid");
+        productCategoryInput.classList.add("is-invalid");
+    }
+    else {
+        productCategoryInput.classList.remove("is-valid");
+        productCategoryInput.classList.remove("is-invalid");
+    }
+})
+
+let categoryInvalidBox = document.getElementById("categoryInvalidBox");
+productCategoryInput.addEventListener("blur", () => {
+    if (isValidCategory() || productCategoryInput.value == "") {
+        categoryInvalidBox.classList.remove("show");
+    } else {
+        categoryInvalidBox.classList.add("show");
+    }
+})
 
 
 
