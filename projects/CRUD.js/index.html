@@ -144,6 +144,32 @@
             </div>
         </div>
     </div>
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="productAddedToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header text-success">
+                <i class="fa fa-check-circle mx-2"></i>
+                <strong class="me-auto">Item Added Successfully!</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body text-center bg-white rounded-bottom-3">
+                <button id="undoAddBtn" class="btn border-0 text-decoration-underline text-warning">Click here to
+                    undo.</button>
+            </div>
+        </div>
+    </div>
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="productEditedToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header text-info">
+                <i class="fa fa-check-circle mx-2"></i>
+                <strong class="me-auto">Item Edited Successfully!</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body text-center bg-white rounded-bottom-3">
+                <button id="undoEditBtn" class="btn border-0 text-decoration-underline text-warning">Click here to
+                    undo.</button>
+            </div>
+        </div>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
         integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>

@@ -32,6 +32,27 @@ let deletedProductsList = [];
 let updateProductsLocalStorage = () => {
     localStorage.setItem("products", JSON.stringify(productsList));
 }
+const productAddedToast = document.getElementById('productAddedToast')
+const toastBootstrapAdd = bootstrap.Toast.getOrCreateInstance(productAddedToast);
+const undoAddBtn = document.getElementById("undoAddBtn");
+
+undoAddBtn.addEventListener("click", () => {
+    productsList.pop();
+    productAddedToast.classList.remove("show");
+    undoClearInputs();
+    displayProducts();
+})
+
+const productEditedToast = document.getElementById('productEditedToast')
+const toastBootstrapEdit = bootstrap.Toast.getOrCreateInstance(productEditedToast);
+const undoEditBtn = document.getElementById("undoEditBtn");
+
+undoEditBtn.addEventListener("click", () => {
+    productsList[editIndex] = oldProduct;
+    productEditedToast.classList.remove("show");
+    undoClearInputs();
+    displayProducts();
+})
 
 addProductBtn.addEventListener("click", (e) => {
     e.preventDefault();
@@ -47,6 +68,7 @@ addProductBtn.addEventListener("click", (e) => {
         image: productImageInput.files.length > 0 ? productImageInput.files[0].name : "default.png",
     }
     productsList.push(product);
+    toastBootstrapAdd.show();
     updateProductsLocalStorage();
     clearInputs();
     displayProducts();
@@ -66,6 +88,7 @@ function showInvalidProductInputs() {
 }
 
 let editIndex;
+let oldProduct;
 submitEditBtn.addEventListener("click", (e) => {
     e.preventDefault();
     if (!isValidProduct()) {
@@ -79,8 +102,10 @@ submitEditBtn.addEventListener("click", (e) => {
         description: productDescriptionInput.value,
         image: productImageInput.files.length > 0 ? productImageInput.files[0].name : "default.png",
     }
+    oldProduct = productsList[editIndex];
     productsList[editIndex] = product;
     clearInputs();
+    toastBootstrapEdit.show();
     updateProductsLocalStorage();
     displayProducts();
     addProductBtn.classList.remove("d-none");
@@ -97,8 +122,16 @@ cancelEditBtn.addEventListener("click", () => {
     clearInputs();
 })
 
+let oldProductName;
+let oldProductPrice;
+let oldProductCategory;
+let oldProductDescription;
 
 let clearInputs = () => {
+    oldProductName = productNameInput.value;
+    oldProductPrice = productPriceInput.value;
+    oldProductCategory = productCategoryInput.value;
+    oldProductDescription = productDescriptionInput.value;
     productNameInput.value = "";
     productPriceInput.value = "";
     productCategoryInput.value = "";
@@ -109,6 +142,13 @@ let clearInputs = () => {
     productCategoryInput.classList.remove("is-valid", "is-invalid");
     productDescriptionInput.classList.remove("is-valid", "is-invalid");
     productImageInput.classList.remove("is-valid", "is-invalid");
+}
+
+function undoClearInputs() {
+    productNameInput.value = oldProductName;
+    productPriceInput.value = oldProductPrice;
+    productCategoryInput.value = oldProductCategory;
+    productDescriptionInput.value = oldProductDescription;
 }
 
 let productsContainer = document.querySelector(".products-container");
@@ -244,10 +284,10 @@ undoDeleteBtn.addEventListener("click", () => {
 })
 
 const undoDeleteToast = document.getElementById('undoDeleteToast')
-const toastBootstrap = bootstrap.Toast.getOrCreateInstance(undoDeleteToast);
+const toastBootstrapDelete = bootstrap.Toast.getOrCreateInstance(undoDeleteToast);
 function deleteProduct(index) {
     let deletedProduct = productsList.splice(index, 1)[0];
-    toastBootstrap.show()
+    toastBootstrapDelete.show()
     updateProductsLocalStorage();
     displayProducts();
     deletedProduct.index = index;
