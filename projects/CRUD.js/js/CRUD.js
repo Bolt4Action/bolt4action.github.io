@@ -308,9 +308,13 @@ productNameInput.addEventListener("input", () => {
     if (isValidName()) {
         productNameInput.classList.remove("is-invalid");
         productNameInput.classList.add("is-valid");
-    } else {
+    } else if(!isValidName() && productNameInput.value.length > 0) {
         productNameInput.classList.remove("is-valid");
         productNameInput.classList.add("is-invalid");
+    }
+    else {
+        productNameInput.classList.remove("is-valid");
+        productNameInput.classList.remove("is-invalid");
     }
 })
 
@@ -328,9 +332,13 @@ productPriceInput.addEventListener("input", () => {
     if (isValidPrice()) {
         productPriceInput.classList.remove("is-invalid");
         productPriceInput.classList.add("is-valid");
-    } else {
+    } else if(!isValidPrice() && productPriceInput.value.length > 0) {
         productPriceInput.classList.remove("is-valid");
         productPriceInput.classList.add("is-invalid");
+    }
+    else {
+        productPriceInput.classList.remove("is-valid");
+        productPriceInput.classList.remove("is-invalid");
     }
 })
 
@@ -348,9 +356,13 @@ productDescriptionInput.addEventListener("input", () => {
     if (isValidDescription()) {
         productDescriptionInput.classList.remove("is-invalid");
         productDescriptionInput.classList.add("is-valid");
-    } else {
+    } else if(!isValidDescription() && productDescriptionInput.value.length > 0) {
         productDescriptionInput.classList.remove("is-valid");
         productDescriptionInput.classList.add("is-invalid");
+    }
+    else {
+        productDescriptionInput.classList.remove("is-valid");
+        productDescriptionInput.classList.remove("is-invalid");
     }
 })
 
