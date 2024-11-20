@@ -15,7 +15,7 @@ landingButtonText.addEventListener("transitionend", () => {
 
 
 // CRUD Operations
-let AdminInputs = {
+const AdminInputs = {
     name: document.getElementById("productName"),
     price: document.getElementById("productPrice"),
     category: document.getElementById("productCategory"),
@@ -31,6 +31,94 @@ const AdminButtons = {
     undoEditBtn: document.getElementById("undoEditBtn"),
     undoDeleteBtn: document.getElementById("undoDeleteBtn")
 }
+
+const AdminEventListeners = {
+    addProductClick: (() => {
+        AdminButtons.addProductBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (!isValidProduct()) {
+                showInvalidProductInputs();
+                return;
+            }
+            let product = {
+                name: AdminInputs.name.value,
+                price: AdminInputs.price.value,
+                category: AdminInputs.category.value,
+                description: AdminInputs.description.value,
+                image: AdminInputs.image.files.length > 0 ? AdminInputs.image.files[0].name : "default.png",
+            }
+            productsList.push(product);
+            createdToasts.createdAddToast.show();
+            updateProductsLocalStorage();
+            clearInputs();
+            displayProducts();
+        });
+    })(),
+    undoAddClick: (() => {
+        AdminButtons.undoAddBtn.addEventListener("click", () => {
+            productsList.pop();
+            ProductToasts.addToast.classList.remove("show");
+            undoClearInputs();
+            displayProducts();
+            pageSections.adminSection.scrollIntoView();
+        });
+    })(),
+    submitEditClick: (() => {
+        AdminButtons.submitEditBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (!isValidProduct()) {
+                showInvalidProductInputs();
+                return;
+            }
+            let product = {
+                name: AdminInputs.name.value,
+                price: AdminInputs.price.value,
+                category: AdminInputs.category.value,
+                description: AdminInputs.description.value,
+                image: AdminInputs.image.files.length > 0 ? AdminInputs.image.files[0].name : "default.png",
+            }
+            tempProduct = productsList[editIndex];
+            productsList[editIndex] = product;
+            clearInputs();
+            createdToasts.createdEditToast.show();
+            updateProductsLocalStorage();
+            displayProducts();
+            AdminButtons.addProductBtn.classList.remove("d-none");
+            AdminButtons.submitEditBtn.classList.add("d-none");
+            AdminButtons.cancelEditBtn.classList.add("d-none");
+            pageSections.productsSection.scrollIntoView();
+        });
+    })(),
+    undoEditClick: (() => {
+        AdminButtons.undoEditBtn.addEventListener("click", () => {
+            productsList[editIndex] = tempProduct;
+            ProductToasts.editToast.classList.remove("show");
+            undoClearInputs();
+            displayProducts();
+        });
+    })(),
+    cancelEditClick: (() => {
+        AdminButtons.cancelEditBtn.addEventListener("click", () => {
+            AdminButtons.addProductBtn.classList.remove("d-none");
+            AdminButtons.submitEditBtn.classList.add("d-none");
+            AdminButtons.cancelEditBtn.classList.add("d-none");
+            pageSections.productsSection.scrollIntoView();
+            clearInputs();
+        });
+    })(),
+    undoDeleteClick: (() => {
+        AdminButtons.undoDeleteBtn.addEventListener("click", () => {
+            productsList.splice(editIndex, 1);
+            ProductToasts.deleteToast.classList.remove("show");
+            undoClearInputs();
+            displayProducts();
+        });
+    })()
+};
+
+
+
+
 
 
 const ProductToasts = {
@@ -67,41 +155,6 @@ let updateProductsLocalStorage = () => {
     localStorage.setItem("products", JSON.stringify(productsList));
 }
 
-AdminButtons.undoAddBtn.addEventListener("click", () => {
-    productsList.pop();
-    ProductToasts.addToast.classList.remove("show");
-    undoClearInputs();
-    displayProducts();
-    pageSections.adminSection.scrollIntoView();
-})
-
-AdminButtons.undoEditBtn.addEventListener("click", () => {
-    productsList[editIndex] = tempProduct;
-    ProductToasts.editToast.classList.remove("show");
-    undoClearInputs();
-    displayProducts();
-})
-
-AdminButtons.addProductBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    if (!isValidProduct()) {
-        showInvalidProductInputs();
-        return;
-    }
-    let product = {
-        name: AdminInputs.name.value,
-        price: AdminInputs.price.value,
-        category: AdminInputs.category.value,
-        description: AdminInputs.description.value,
-        image: AdminInputs.image.files.length > 0 ? AdminInputs.image.files[0].name : "default.png",
-    }
-    productsList.push(product);
-    createdToasts.createdAddToast.show();
-    updateProductsLocalStorage();
-    clearInputs();
-    displayProducts();
-})
-
 function showInvalidProductInputs() {
     AdminInputs.name.classList.contains("is-valid") ? null : AdminInputs.name.classList.add("is-invalid");
     AdminInputs.price.classList.contains("is-valid") ? null : AdminInputs.price.classList.add("is-invalid");
@@ -114,41 +167,6 @@ function showInvalidProductInputs() {
         AdminInputs.category.classList.remove("is-invalid");
     }
 }
-
-AdminButtons.submitEditBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    if (!isValidProduct()) {
-        showInvalidProductInputs();
-        return;
-    }
-    let product = {
-        name: AdminInputs.name.value,
-        price: AdminInputs.price.value,
-        category: AdminInputs.category.value,
-        description: AdminInputs.description.value,
-        image: AdminInputs.image.files.length > 0 ? AdminInputs.image.files[0].name : "default.png",
-    }
-    tempProduct = productsList[editIndex];
-    productsList[editIndex] = product;
-    clearInputs();
-    createdToasts.createdEditToast.show();
-    updateProductsLocalStorage();
-    displayProducts();
-    AdminButtons.addProductBtn.classList.remove("d-none");
-    AdminButtons.submitEditBtn.classList.add("d-none");
-    AdminButtons.cancelEditBtn.classList.add("d-none");
-    pageSections.productsSection.scrollIntoView();
-})
-
-AdminButtons.cancelEditBtn.addEventListener("click", () => {
-    AdminButtons.addProductBtn.classList.remove("d-none");
-    AdminButtons.submitEditBtn.classList.add("d-none");
-    AdminButtons.cancelEditBtn.classList.add("d-none");
-    pageSections.productsSection.scrollIntoView();
-    clearInputs();
-})
-
-
 
 let clearInputs = () => {
     tempProduct.name = AdminInputs.name.value;
@@ -173,9 +191,6 @@ function undoClearInputs() {
     AdminInputs.category.value = tempProduct.category;
     AdminInputs.description.value = tempProduct.description;
 }
-
-
-
 
 function displayProducts(filterMethod = "") {
     productsContainer.textContent = "";
@@ -300,11 +315,6 @@ function pullProductData(product) {
     AdminInputs.description.value = product.description;
     // AdminInputs.image.value = product.image;    //! Not Working
 }
-
-AdminButtons.undoDeleteBtn.addEventListener("click", () => {
-    undoDeleteProduct();
-    productDeletedToast.classList.remove("show");
-})
 
 function deleteProduct(index) {
     tempProduct = productsList.splice(index, 1)[0];
