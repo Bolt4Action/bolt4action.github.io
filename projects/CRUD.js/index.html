@@ -87,7 +87,7 @@
                                 class="fst-italic">(Optional)</span></label>
                         <input class="form-control" type="file" id="productImage">
                     </div>
-                    <button type="submit"
+                    <button type="submit" id="addProductBtn"
                         class="btn btn-outline-warning btn-lg text-center mx-auto d-block rounded-0 rounded-bottom-4 fw-bold shadow-sm">Add
                         Product</button>
                     <div class="edit-container d-flex flex-column align-items-center">
@@ -132,7 +132,7 @@
         </section>
     </main>
     <div class="toast-container position-fixed bottom-0 end-0 p-3">
-        <div id="undoDeleteToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div id="productDeletedToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header text-danger">
                 <i class="fa fa-trash mx-2"></i>
                 <strong class="me-auto">Item Deleted</strong>

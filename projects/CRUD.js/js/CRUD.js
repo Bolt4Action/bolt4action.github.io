@@ -22,41 +22,57 @@ let AdminInputs = {
     description: document.getElementById("productDescription"),
     image: document.getElementById("productImage")
 };
-// const AdminInputs.name = document.getElementById("productName");
-// const AdminInputs.price = document.getElementById("productPrice");
-// const AdminInputs.category = document.getElementById("productCategory");
-// const AdminInputs.description = document.getElementById("productDescription");
-// const AdminInputs.image = document.getElementById("productImage");
-const addProductBtn = document.querySelector(".admin-dashboard button[type='submit']");
-const submitEditBtn = document.getElementById("submitEditBtn");
-const cancelEditBtn = document.getElementById("cancelEditBtn");
+
+let AdminButtons = {
+    addProductBtn: document.getElementById("addProductBtn"),
+    submitEditBtn: document.getElementById("submitEditBtn"),
+    cancelEditBtn: document.getElementById("cancelEditBtn")
+}
+
+
+const ProductToasts = {
+    addToast : document.getElementById('productAddedToast'),
+    editToast : document.getElementById('productEditedToast'),
+    deleteToast : document.getElementById('productDeletedToast'),
+    undoAddBtn : document.getElementById("undoAddBtn"),
+    undoEditBtn : document.getElementById("undoEditBtn"),
+    undoDeleteBtn : document.getElementById("undoDeleteBtn"),
+}
+
+const createdToasts = {
+    createdAddToast : bootstrap.Toast.getOrCreateInstance(ProductToasts.addToast),
+    createdEditToast : bootstrap.Toast.getOrCreateInstance(ProductToasts.editToast),
+    createdDeleteToast : bootstrap.Toast.getOrCreateInstance(ProductToasts.deleteToast)
+}
 
 let productsList = [];
 let displayList = [];
-let deletedProduct;
-
+let productsContainer = document.querySelector(".products-container");
+let editIndex;
+let tempProduct = 
+{
+    name: "",
+    price: "",
+    category: "",
+    description: "",
+    index: -1
+}
 
 let updateProductsLocalStorage = () => {
     localStorage.setItem("products", JSON.stringify(productsList));
 }
-const productAddedToast = document.getElementById('productAddedToast')
-const toastBootstrapAdd = bootstrap.Toast.getOrCreateInstance(productAddedToast);
-const undoAddBtn = document.getElementById("undoAddBtn");
 
 undoAddBtn.addEventListener("click", () => {
     productsList.pop();
-    productAddedToast.classList.remove("show");
+    ProductToasts.addToast.classList.remove("show");
     undoClearInputs();
     displayProducts();
+    adminSection.scrollIntoView();
 })
 
-const productEditedToast = document.getElementById('productEditedToast')
-const toastBootstrapEdit = bootstrap.Toast.getOrCreateInstance(productEditedToast);
-const undoEditBtn = document.getElementById("undoEditBtn");
-
 undoEditBtn.addEventListener("click", () => {
-    productsList[editIndex] = oldProduct;
-    productEditedToast.classList.remove("show");
+    productsList[editIndex] = tempProduct;
+    ProductToasts.editToast.classList.remove("show");
     undoClearInputs();
     displayProducts();
 })
@@ -75,7 +91,7 @@ addProductBtn.addEventListener("click", (e) => {
         image: AdminInputs.image.files.length > 0 ? AdminInputs.image.files[0].name : "default.png",
     }
     productsList.push(product);
-    toastBootstrapAdd.show();
+    createdToasts.createdAddToast.show();
     updateProductsLocalStorage();
     clearInputs();
     displayProducts();
@@ -94,8 +110,6 @@ function showInvalidProductInputs() {
     }
 }
 
-let editIndex;
-let oldProduct;
 submitEditBtn.addEventListener("click", (e) => {
     e.preventDefault();
     if (!isValidProduct()) {
@@ -109,36 +123,33 @@ submitEditBtn.addEventListener("click", (e) => {
         description: AdminInputs.description.value,
         image: AdminInputs.image.files.length > 0 ? AdminInputs.image.files[0].name : "default.png",
     }
-    oldProduct = productsList[editIndex];
+    tempProduct = productsList[editIndex];
     productsList[editIndex] = product;
     clearInputs();
-    toastBootstrapEdit.show();
+    createdToasts.createdEditToast.show();
     updateProductsLocalStorage();
     displayProducts();
-    addProductBtn.classList.remove("d-none");
-    submitEditBtn.classList.add("d-none");
-    cancelEditBtn.classList.add("d-none");
+    AdminButtons.addProductBtn.classList.remove("d-none");
+    AdminButtons.submitEditBtn.classList.add("d-none");
+    AdminButtons.cancelEditBtn.classList.add("d-none");
     productsSection.scrollIntoView();
 })
 
 cancelEditBtn.addEventListener("click", () => {
-    addProductBtn.classList.remove("d-none");
-    submitEditBtn.classList.add("d-none");
-    cancelEditBtn.classList.add("d-none");
+    AdminButtons.addProductBtn.classList.remove("d-none");
+    AdminButtons.submitEditBtn.classList.add("d-none");
+    AdminButtons.cancelEditBtn.classList.add("d-none");
     productsSection.scrollIntoView();
     clearInputs();
 })
 
-let oldProductName;
-let oldProductPrice;
-let oldProductCategory;
-let oldProductDescription;
+
 
 let clearInputs = () => {
-    oldProductName = AdminInputs.name.value;
-    oldProductPrice = AdminInputs.price.value;
-    oldProductCategory = AdminInputs.category.value;
-    oldProductDescription = AdminInputs.description.value;
+    tempProduct.name = AdminInputs.name.value;
+    tempProduct.price = AdminInputs.price.value;
+    tempProduct.category = AdminInputs.category.value;
+    tempProduct.description = AdminInputs.description.value;
     AdminInputs.name.value = "";
     AdminInputs.price.value = "";
     AdminInputs.category.value = "";
@@ -152,13 +163,12 @@ let clearInputs = () => {
 }
 
 function undoClearInputs() {
-    AdminInputs.name.value = oldProductName;
-    AdminInputs.price.value = oldProductPrice;
-    AdminInputs.category.value = oldProductCategory;
-    AdminInputs.description.value = oldProductDescription;
+    AdminInputs.name.value = tempProduct.name;
+    AdminInputs.price.value = tempProduct.price;
+    AdminInputs.category.value = tempProduct.category;
+    AdminInputs.description.value = tempProduct.description;
 }
 
-let productsContainer = document.querySelector(".products-container");
 
 
 
@@ -198,7 +208,7 @@ const productsSection = document.getElementById("products-section");
 
 function createProductCard(product, index, nameHighlight = "") {
     let productGrid = document.createElement("div");
-    productGrid.classList.add("col-lg-3", "col-sm-6");
+    productGrid.classList.add("col-lg-3", "col-sm-6", "d-flex");
     let productCard = document.createElement("div");
     productCard.classList.add("card", "product-card");
 
@@ -211,10 +221,11 @@ function createProductCard(product, index, nameHighlight = "") {
     productCard.appendChild(img);
 
     let cardBody = document.createElement("div");
-    cardBody.classList.add("card-body");
+    cardBody.classList.add("card-body", "d-flex", "flex-column", "justify-content-between");
+    productCard.appendChild(cardBody);
 
-    let row = document.createElement("div");
-    row.classList.add("row");
+    let contentRow = document.createElement("div");
+    contentRow.classList.add("row", "pb-4");
 
     let cardTitle = document.createElement("h5");
     cardTitle.classList.add("card-title", "col-7", "mb-0");
@@ -233,13 +244,14 @@ function createProductCard(product, index, nameHighlight = "") {
     cardCategory.classList.add("card-category", "fw-lighter", "col-12", "h6", "text-end");
     cardCategory.textContent = product.category;
 
-    row.appendChild(cardTitle);
-    row.appendChild(cardPrice);
-    row.appendChild(cardCategory);
-
     let cardText = document.createElement("p");
-    cardText.classList.add("card-text");
+    cardText.classList.add("card-text", "col-12");
     cardText.textContent = product.description;
+
+    contentRow.appendChild(cardTitle);
+    contentRow.appendChild(cardPrice);
+    contentRow.appendChild(cardCategory);
+    contentRow.appendChild(cardText); 
 
     let buttonRow = document.createElement("div");
     buttonRow.classList.add("row", "justify-content-evenly");
@@ -248,60 +260,58 @@ function createProductCard(product, index, nameHighlight = "") {
     editButton.classList.add("btn", "btn-outline-warning", "col-5");
     editButton.innerHTML = "<i class='fa fa-edit'></i> Edit";
     editButton.addEventListener("click", () => {
-        pullProductData();
+        pullProductData(product);
         adminSection.scrollIntoView();
         addProductBtn.classList.add("d-none");
         submitEditBtn.classList.remove("d-none");
         cancelEditBtn.classList.remove("d-none");
         editIndex = index;
     })
-
-    function pullProductData() {
-        AdminInputs.name.value = product.name;
-        AdminInputs.price.value = product.price;
-        AdminInputs.category.value = product.category;
-        AdminInputs.description.value = product.description;
-        // AdminInputs.image.value = product.image;    //! Not Working
-    }
-
+    
+    
     let deleteButton = document.createElement("button");
     deleteButton.classList.add("btn", "btn-outline-danger", "col-5");
     deleteButton.innerHTML = "<i class='fa fa-trash me-1'></i>Delete";
     deleteButton.addEventListener("click", () => {
         deleteProduct(index);
     })
-
+    
     buttonRow.appendChild(editButton);
     buttonRow.appendChild(deleteButton);
-
-    cardBody.appendChild(row);
-    cardBody.appendChild(cardText);
+    
+    cardBody.appendChild(contentRow);
     cardBody.appendChild(buttonRow);
-
+    
     productCard.appendChild(cardBody);
-
-
-
+    
+    
+    
     return productGrid;
 }
-const undoDeleteBtn = document.getElementById("undoDeleteBtn");
+
+function pullProductData(product) {
+    AdminInputs.name.value = product.name;
+    AdminInputs.price.value = product.price;
+    AdminInputs.category.value = product.category;
+    AdminInputs.description.value = product.description;
+    // AdminInputs.image.value = product.image;    //! Not Working
+}
+
 undoDeleteBtn.addEventListener("click", () => {
     undoDeleteProduct();
-    undoDeleteToast.classList.remove("show");
+    productDeletedToast.classList.remove("show");
 })
 
-const undoDeleteToast = document.getElementById('undoDeleteToast')
-const toastBootstrapDelete = bootstrap.Toast.getOrCreateInstance(undoDeleteToast);
 function deleteProduct(index) {
-    deletedProduct = productsList.splice(index, 1)[0];
-    toastBootstrapDelete.show()
+    tempProduct = productsList.splice(index, 1)[0];
+    createdToasts.createdDeleteToast.show()
     updateProductsLocalStorage();
     displayProducts();
-    deletedProduct.index = index;
+    tempProduct.index = index;
 }
 
 function undoDeleteProduct() {
-    productsList.splice(deletedProduct.index, 0, deletedProduct);
+    productsList.splice(tempProduct.index, 0, tempProduct);
     updateProductsLocalStorage();
     displayProducts();
 }
@@ -429,7 +439,7 @@ AdminInputs.category.addEventListener("input", () => {
     if (isValidCategory()) {
         AdminInputs.category.classList.remove("is-invalid");
         AdminInputs.category.classList.add("is-valid");
-        categoryInvalidBox.classList.remove("show");
+        // categoryInvalidBox.classList.remove("show");
     } else if (!isValidCategory() && AdminInputs.category.value.length > 0) {
         AdminInputs.category.classList.remove("is-valid");
         AdminInputs.category.classList.add("is-invalid");
@@ -440,14 +450,14 @@ AdminInputs.category.addEventListener("input", () => {
     }
 })
 
-let categoryInvalidBox = document.getElementById("categoryInvalidBox");
-AdminInputs.category.addEventListener("blur", () => {
-    if (isValidCategory() || AdminInputs.category.value == "") {
-        categoryInvalidBox.classList.remove("show");
-    } else {
-        categoryInvalidBox.classList.add("show");
-    }
-})
+// let categoryInvalidBox = document.getElementById("categoryInvalidBox");
+// AdminInputs.category.addEventListener("blur", () => {
+//     if (isValidCategory()) {
+//         categoryInvalidBox.classList.remove("show");
+//     } else {
+//         categoryInvalidBox.classList.add("show");
+//     }
+// })
 
 
 
