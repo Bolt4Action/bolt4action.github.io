@@ -15,6 +15,8 @@ landingButtonText.addEventListener("transitionend", () => {
 
 
 // CRUD Operations
+let editIndex;
+
 const AdminInputs = {
     name: document.getElementById("productName"),
     price: document.getElementById("productPrice"),
@@ -49,8 +51,8 @@ const AdminEventListeners = {
             }
             productsList.push(product);
             createdToasts.createdAddToast.show();
-            updateProductsLocalStorage();
             clearInputs();
+            updateProductsLocalStorage();
             displayProducts();
         });
     })(),
@@ -59,6 +61,7 @@ const AdminEventListeners = {
             productsList.pop();
             ProductToasts.addToast.classList.remove("show");
             undoClearInputs();
+            updateProductsLocalStorage();
             displayProducts();
             pageSections.adminSection.scrollIntoView();
         });
@@ -81,12 +84,12 @@ const AdminEventListeners = {
             productsList[editIndex] = product;
             clearInputs();
             createdToasts.createdEditToast.show();
-            updateProductsLocalStorage();
-            displayProducts();
             AdminButtons.addProductBtn.classList.remove("d-none");
             AdminButtons.submitEditBtn.classList.add("d-none");
             AdminButtons.cancelEditBtn.classList.add("d-none");
             pageSections.productsSection.scrollIntoView();
+            updateProductsLocalStorage();
+            displayProducts();
         });
     })(),
     undoEditClick: (() => {
@@ -94,6 +97,7 @@ const AdminEventListeners = {
             productsList[editIndex] = tempProduct;
             ProductToasts.editToast.classList.remove("show");
             undoClearInputs();
+            updateProductsLocalStorage();
             displayProducts();
         });
     })(),
@@ -108,18 +112,13 @@ const AdminEventListeners = {
     })(),
     undoDeleteClick: (() => {
         AdminButtons.undoDeleteBtn.addEventListener("click", () => {
-            productsList.splice(editIndex, 1);
+            productsList.splice(tempProduct.index, 0, tempProduct);
             ProductToasts.deleteToast.classList.remove("show");
-            undoClearInputs();
+            updateProductsLocalStorage();
             displayProducts();
         });
     })()
 };
-
-
-
-
-
 
 const ProductToasts = {
     addToast: document.getElementById('productAddedToast'),
@@ -141,7 +140,6 @@ const pageSections = {
 let productsContainer = document.querySelector(".products-container");
 let productsList = [];
 let displayList = [];
-let editIndex;
 let tempProduct =
 {
     name: "",
@@ -322,12 +320,6 @@ function deleteProduct(index) {
     updateProductsLocalStorage();
     displayProducts();
     tempProduct.index = index;
-}
-
-function undoDeleteProduct() {
-    productsList.splice(tempProduct.index, 0, tempProduct);
-    updateProductsLocalStorage();
-    displayProducts();
 }
 
 // Search
