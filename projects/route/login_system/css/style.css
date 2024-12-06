@@ -1,0 +1,30 @@
+:root
+{
+    --main-color: #274029;  
+    --second-color: #181F1C;
+}
+
+
+#loginWindow,
+#signupWindow,
+#welcomeWindow
+{
+    background-color: var(--main-color);
+}
+
+body
+{
+    background-color: var(--second-color);
+}
+
+
+#signinBtn,
+#signupBtn
+{
+    cursor: pointer;
+    color: white;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    text-decoration: underline;
+}
